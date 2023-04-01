@@ -1,0 +1,58 @@
+.carousel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -1000px;
+    width: 700px;
+    height: 100vh;
+    margin-top: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.show__carousel.carousel {
+    right: 5rem;
+}
+
+.carousel img {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.carousel__wrapper {
+    width: 100%;
+}
+
+.carousel__images {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.carousel__images__image {
+    width: calc(100% / 4 - 6px);
+    height: 80px;
+    object-fit: cover;
+    transition: 0.2s;
+    margin: 0 2px;
+}
+
+.carousel__images__image:hover {
+    transform: scale(1.02)
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel {
+        display: none;
+    }
+}
+
+/* TODO
+    best media query for carousel
+*/

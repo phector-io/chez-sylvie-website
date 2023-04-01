@@ -1,46 +1,67 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./NavBar.module.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import RoutesComponent from "./Routes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faPizzaSlice, faPhone, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import CarouselComponent from "./Carousel/Carousel";
+import { SettingsHelper } from "../../helpers/SettingsHelper";
+
+const navLinkList = [
+    "accueil",
+    "plats",
+    "contact",
+    "quiz",
+];
 
 const NavBarComponent: FC = (): JSX.Element => {
+    const [isNavBarOpen, setIsNavBarOpen] = useState<boolean>(false);
+
+    const getIcon = (link: string) => {
+        switch (link) {
+            case "accueil":
+                return faHouse;
+            case "plats":
+                return faPizzaSlice;
+            case "contact":
+                return faPhone;
+            case "quiz":
+                return faQuestionCircle;
+            default:
+                return faHouse;
+        }
+    };
+
     return (
         <Router>
-            <nav className="navbar" role="menubar">
-                <div className="navbar-content">
-                    <h3 className="logo">
-                        Pizzeria<span>Chez Sylvie</span>
+            <nav className={styles.navbar} role="menubar">
+                <div className={`${styles.navbar__content} ${isNavBarOpen ? styles.show__navbar : ""}`}>
+                    <h3 className={styles.navbar__logo}>
+                        Pizzeria<span>{SettingsHelper.getSetting("company_name")}</span>
                     </h3>
-                    <nav className="nav" role="navigation">
-                        <ul role="menu">
-                            <li role="menuitem">
-                                <Link to="/" title="Accueil">
-                                    <i className="fas fa-home"></i>
-                                    <span className="currentPage">Accueil</span>
-                                </Link>
-                            </li>
-                            <li role="menuitem">
-                                <Link to="/menu" title="Plats">
-                                    <i className="fas fa-pizza-slice"></i>
-                                    <span>Plats</span>
-                                </Link>
-                            </li>
-                            <li role="menuitem">
-                                <Link to="/contact" title="Contact">
-                                    <i className="fas fa-phone"></i>
-                                    <span>Contact</span>
-                                </Link>
-                            </li>
-                            <li role="menuitem">
-                                <Link to="/quiz" title="Quiz">
-                                    <i className="fa fa-question-circle"></i>
-                                    <span>Quiz</span>
-                                </Link>
-                            </li>
+                    <nav className={styles.navbar__nav} role="navigation">
+                        <ul role="menu" style={{transition: `left ${isNavBarOpen ? '1.5s' : '.1s'} ease-in-out`}}>
+                            {navLinkList.map((link, idx) => (
+                                <li key={idx} role="menuitem">
+                                    <Link
+                                        to={`/${link === "accueil" ? "" : link}`}
+                                        title={link.charAt(0).toUpperCase() + link.slice(1)}
+                                        onClick={() => setIsNavBarOpen(false)}
+                                    >
+                                        <FontAwesomeIcon icon={getIcon(link)} />
+                                        <span>{link.charAt(0).toUpperCase() + link.slice(1)}</span>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
+                        <CarouselComponent isNavBarOpen={isNavBarOpen}/>
                     </nav>
-                    <button className="burger" title="Menu principal">
-                        <span className="bar"></span>
+                    <button
+                        className={styles.navbar__burger}
+                        title="Menu principal"
+                        onClick={() => setIsNavBarOpen(!isNavBarOpen)}
+                    >
+                        <span className={styles.navbar__burger__bar}></span>
                     </button>
                 </div>
             </nav>

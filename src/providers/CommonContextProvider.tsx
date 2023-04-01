@@ -1,21 +1,46 @@
-import { ReactNode, createContext, useContext } from "react";
-import { ICommonContextProviderProps } from "../interfaces/ICommonContextProviderProps";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ICommonContextProviderProps, ICarouselImageObject } from "../interfaces/ICommonContextProviderProps";
+import rawCarouselImages from "../data/carouselImages.json";
 
 type Props = {
     children: ReactNode;
 };
 
-const CommonContextProvider = createContext<ICommonContextProviderProps>({});
+const CommonContext = createContext<ICommonContextProviderProps>({
+    carouselImages: [],
+    selectedImage: null,
+    setSelectedImages: () => {},
+});
 
-export const useCommonContextProvider = () => useContext(CommonContextProvider);
+export const useCommonContextProvider = () => useContext(CommonContext);
 
-export const CommonContextProviderProvider = ({ children }: Props) => {
+export const CommonContextProvider = ({ children }: Props) => {
+    const [carouselImages, setCarouselImages] = useState<ICarouselImageObject[]>([]);
+    const [selectedImage, setSelectedImages] = useState<ICarouselImageObject | null>(null);
 
-    const propsValues = {};
+    // Carousel
+    const getImagesObject = () => {
+        const carouselImages: ICarouselImageObject[] = rawCarouselImages;
+        setCarouselImages(carouselImages);
+    };
+
+    useEffect(() => {
+        getImagesObject();
+    }, []);
+
+    useEffect(() => {
+        setSelectedImages(carouselImages[0]);
+    }, [carouselImages]);
+
+    const propsValues = {
+        carouselImages,
+        selectedImage,
+        setSelectedImages,
+    };
 
     return (
-        <CommonContextProvider.Provider value={propsValues}>
+        <CommonContext.Provider value={propsValues}>
             {children}
-        </CommonContextProvider.Provider>
+        </CommonContext.Provider>
     );
 };

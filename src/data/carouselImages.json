@@ -1,0 +1,22 @@
+[
+    {
+        "id": "55508c09-ce43-4eae-9442-0fadd3ae106a",
+        "title": "La Pizzeria pour halloween",
+        "source": "./assets/pizzeria4.png"
+    },
+    {
+        "id": "c0828fc5-f388-44f5-a6be-7d63ad310c40",
+        "title": "La Pizzeria au printemps",
+        "source": "./assets/pizzeria.jpg"
+    },
+    {
+        "id": "d1e2f7af-47a7-4266-828a-caa851cd2c66",
+        "title": "La Pizzeria en automne",
+        "source": "./assets/pizzeria2.jpg"
+    },
+    {
+        "id": "35eb7154-b6d9-40e9-885e-19998171a8b0",
+        "title": "La Pizzeria pour noël",
+        "source": "./assets/pizzeria3.jpg"
+    }
+]

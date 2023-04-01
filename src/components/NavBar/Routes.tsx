@@ -10,7 +10,7 @@ const RoutesComponent: FC = (): JSX.Element => {
     return (
         <Routes>
             <Route path="/" element={<HomeComponent />} />
-            <Route path="/menu" element={<DishesComponent />} />
+            <Route path="/plats" element={<DishesComponent />} />
             <Route path="/contact" element={<ContactComponent />} />
             <Route path="/quiz" element={<QuizComponent />} />
             <Route path="*" element={<NotFoundComponent />} />
