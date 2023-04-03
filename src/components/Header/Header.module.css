@@ -57,6 +57,14 @@
     transform: scale(1.1);
 }
 
+.cnv {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+}
+
 /* Dishes Header styles */
 .header_overlay_dishes {
     width: 700px;

@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import RoutesComponent from "./Routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPizzaSlice, faPhone, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import CarouselComponent from "./Carousel/Carousel";
+import CarouselComponent from "../Carousel/Carousel";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
+import { useCommonContextProvider } from "../../providers/CommonContextProvider";
 
 const navLinkList = [
     "accueil",
@@ -15,7 +16,7 @@ const navLinkList = [
 ];
 
 const NavBarComponent: FC = (): JSX.Element => {
-    const [isNavBarOpen, setIsNavBarOpen] = useState<boolean>(false);
+    const { isNavBarOpen, setIsNavBarOpen } = useCommonContextProvider();
 
     const getIcon = (link: string) => {
         switch (link) {
@@ -54,7 +55,7 @@ const NavBarComponent: FC = (): JSX.Element => {
                                 </li>
                             ))}
                         </ul>
-                        <CarouselComponent isNavBarOpen={isNavBarOpen}/>
+                        <CarouselComponent />
                     </nav>
                     <button
                         className={styles.navbar__burger}

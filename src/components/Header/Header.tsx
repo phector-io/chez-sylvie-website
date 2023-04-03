@@ -72,7 +72,7 @@ const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
                     </>
                 )}
             </div>
-            {/* <canvas className="cnv"></canvas> */}
+            {/* <canvas className={styles.cnv}></canvas> */}
         </Parallax>
     );
 };

@@ -21,7 +21,6 @@
 
 .carousel img {
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .carousel__wrapper {
@@ -41,6 +40,7 @@
     object-fit: cover;
     transition: 0.2s;
     margin: 0 2px;
+    cursor: pointer;
 }
 
 .carousel__images__image:hover {

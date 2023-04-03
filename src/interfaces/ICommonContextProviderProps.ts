@@ -1,6 +1,8 @@
 export interface ICommonContextProviderProps {
+    isNavBarOpen: boolean;
     carouselImages: ICarouselImageObject[];
     selectedImage: ICarouselImageObject | null;
+    setIsNavBarOpen: (isOpen: boolean) => void;
     setSelectedImages: (selectedImg: ICarouselImageObject) => void;
 }
 
