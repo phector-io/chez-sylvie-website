@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import styles from './Header.module.css';
-import { Parallax } from "react-parallax";
+import { useNavigate } from "react-router-dom";
 import homeParallaxBg from '/assets/pizza.jpg';
 import menuParallaxBg from '/assets/bg-pizza.jpg';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
@@ -13,6 +13,8 @@ import {
     faIceCream,
     faWineGlassAlt
 } from '@fortawesome/free-solid-svg-icons';
+import { useCommonContextProvider } from '../../providers/CommonContextProvider';
+import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
 
 const choiceGroup = [
     { name: "pizzas", icon: faPizzaSlice },
@@ -23,22 +25,35 @@ const choiceGroup = [
     { name: "boissons", icon: faWineGlassAlt },
 ];
 
-export enum HEADER_TYPE {
-    HOME,
-    DISHES,
-};
-
 type Props = {
     type: HEADER_TYPE;
 };
 
 const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
+    const { setDishType, scrollToTarget } = useCommonContextProvider();
+    const paralaxRef = useRef<HTMLDivElement>(null);
+    const history = useNavigate();
 
+    const _handleClick = (choice: string) => {
+
+        console.log('~> click'); //DELETE
+        scrollToTarget(SCROLL_TARGET.BOTTOM);
+        setDishType(choice);
+    };
+
+    // On scroll paralax effect
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (paralaxRef.current) {
+                paralaxRef.current.style.backgroundPositionY = window.scrollY / 2 + "px";
+            }
+        });
+    }, [window.scrollY]);
+    
     return (
-        <Parallax
-            className={styles.header}
-            bgImage={type === HEADER_TYPE.HOME ? homeParallaxBg : menuParallaxBg}
-            strength={500}
+        <div 
+            className={styles.header} ref={paralaxRef}
+            style={{backgroundImage: type === HEADER_TYPE.HOME ? `url(${homeParallaxBg})` : `url(${menuParallaxBg})`}}
         >
             <div 
                 className={`${styles.header_overlay} ${type === HEADER_TYPE.HOME ? styles.header_overlay_home : styles.header_overlay_dishes}`} 
@@ -52,16 +67,16 @@ const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
                         <p className="description">
                             {SettingsHelper.getSetting("company_description")}
                         </p>
-                        <a href="plats" title="Voir la carte">
+                        <button onClick={() => history("/plats")}>
                             {SettingsHelper.getSetting("menu_button_text")}
-                        </a>
+                        </button>
                     </>
                 ) : (
                     <>
                         <ul>
                             {choiceGroup.map((choice, idx) => (
                                 <li key={idx}>
-                                    <button>
+                                    <button onClick={() => _handleClick(choice.name)}>
                                         <FontAwesomeIcon icon={choice.icon} />
                                         <br />
                                         <span>{choice.name.charAt(0).toUpperCase() + choice.name.slice(1)}</span>
@@ -73,7 +88,7 @@ const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
                 )}
             </div>
             {/* <canvas className={styles.cnv}></canvas> */}
-        </Parallax>
+        </div>
     );
 };
 

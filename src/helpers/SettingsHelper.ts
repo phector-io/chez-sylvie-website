@@ -20,6 +20,7 @@ const GENERAL_SETTINGS: ISettings = {
     contact_facebook_link: "https://www.facebook.com/chezsylviesarralbe",
     contact_facebook_link_title: "Voir sur Facebook",
     contact_facebook_text: "Facebook",
+    dishes_random_title: "Plat aléatoire",
 };
 
 class SettingsHelper {

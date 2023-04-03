@@ -1,8 +1,9 @@
 import { FC } from "react";
 import styles from "./Home.module.css";
-import HeaderComponent, { HEADER_TYPE } from "../Header/Header";
+import HeaderComponent from "../Header/Header";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
+import { HEADER_TYPE } from "../../interfaces/Enum";
 
 const HomeComponent: FC = (): JSX.Element => {
 
