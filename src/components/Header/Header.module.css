@@ -1,40 +1,43 @@
+/* Global Header Settings */
 .header {
     height: 100vh;
     width: 100%;
     position: relative;
-    /* background: url("./assets/pizza.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: 0;
 }
 
-.overlay {
+.header_overlay {
     position: absolute;
+    color: #fff;
+}
+
+/* Home Header styles */
+.header_overlay_home {
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.712);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #fff;
 }
 
-.overlay h2 {
+.header_overlay_home h2 {
     font-size: 3rem;
 }
 
-.overlay p {
+.header_overlay_home p {
     margin: 10px 0;
     text-align: center;
     width: 50%;
     font-size: 1.5rem;
 }
 
-.overlay a {
+.header_overlay_home a {
     margin-top: 1rem;
     padding: 0.6rem 1.8rem;
     background-color: #e20f2f;
@@ -48,10 +51,95 @@
     z-index: 1;
 }
 
-.overlay a:hover {
+.header_overlay_home a:hover {
     color: #fff;
     letter-spacing: 0;
     transform: scale(1.1);
 }
+
+/* Dishes Header styles */
+.header_overlay_dishes {
+    width: 700px;
+    height: 100vh;
+    top: 0;
+    right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header_overlay_dishes button {
+    background: rgba(0, 0, 0, 0.822);
+    color: #fff;
+    border: none;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.header_overlay_dishes button:hover {
+    transform: scale(0.9);
+    color: #e20f2f;
+}
+
+.header_overlay_dishes ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.header_overlay_dishes span {
+    font-size: 1rem;
+}
+
+.header_overlay_dishes svg {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 980px) {
+    /* .header_overlay_dishes {
+        top: 25%;
+        right: 50%;
+        transform: translateX(50%);
+    } */
+}
+
+@media screen and (max-width: 880px) {
+    /* .header_overlay_dishes {
+        width: 600px;
+        top: 30%;
+    }
+
+    .header_overlay_dishes button {
+        width: 150px;
+        height: 150px;
+    }
+
+    .header_overlay_dishes i {
+        font-size: 40px;
+    } */
+}
+
+@media screen and (max-width: 550px) {
+    /* .header_overlay_dishes {
+        width: 100%;
+        top: 15%;
+    }
+
+    .header_overlay_dishes button {
+        width: 150px;
+        height: 150px;
+    } */
+}
+
+/*TODO
+• Add media queries for mobile
+*/
+
 
 
