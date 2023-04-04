@@ -1,5 +1,4 @@
 import "./App.css";
-import FooterComponent from "./components/Footer/Footer";
 import NavBarComponent from "./components/NavBar/NavBar";
 import { CommonContextProvider } from "./providers/CommonContextProvider";
 
@@ -8,7 +7,6 @@ function App() {
         <CommonContextProvider>
             <div className="App">
                 <NavBarComponent />
-                <FooterComponent />
             </div>
         </CommonContextProvider>
     );

@@ -4,6 +4,7 @@ import HeaderComponent from "../Header/Header";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
 import { HEADER_TYPE } from "../../interfaces/Enum";
+import FooterComponent from "../Footer/Footer";
 
 const HomeComponent: FC = (): JSX.Element => {
 
@@ -26,6 +27,7 @@ const HomeComponent: FC = (): JSX.Element => {
                     />
                 </section>
             </main>
+            <FooterComponent />
         </div>
     );
 };
