@@ -6,11 +6,14 @@ export interface ICommonContextProviderProps {
     selectedImage: IImageObject | null;
     dishType: string;
     dishList: IDishObject[];
-    randomDish: IDishObject | null;
+    showRandomDish: boolean;
+    isRandomRunning: boolean;
+    newRandomDish: IDishObject | null;
     setIsNavBarOpen: (isOpen: boolean) => void;
     setSelectedImages: (selectedImg: IImageObject) => void;
     getPathname: (pathname: string) => void;
     setDishType: (dish: string) => void;
+    launchRandomDish: (categories: string[]) => void;
     scrollToTarget: (target: SCROLL_TARGET) => void;
 }
 

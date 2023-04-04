@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { retrieveData } from "../helpers/CommonQueryHelper";
 import { DATA_TYPES, SCROLL_TARGET } from "../interfaces/Enum";
 import { SettingsHelper } from "../helpers/SettingsHelper";
-import { filterDishes } from "../helpers/Helper";
+import { filterDishes, getRandomDish } from "../helpers/Helper";
 
 type Props = {
     children: ReactNode;
@@ -19,11 +19,14 @@ const CommonContext = createContext<ICommonContextProviderProps>({
     selectedImage: null,
     dishType: "",
     dishList: [],
-    randomDish: null,
+    showRandomDish: false,
+    isRandomRunning: false,
+    newRandomDish: null,
     setIsNavBarOpen: () => {},
     setSelectedImages: () => {},
     getPathname: () => {},
     setDishType: () => {},
+    launchRandomDish: () => {},
     scrollToTarget: () => {},
 });
 
@@ -37,7 +40,9 @@ export const CommonContextProvider = ({ children }: Props) => {
     const [dishType, setDishType] = useState<string>("");
     const [savedDishData, setSavedDishData] = useState<IDishObject[]>([]);
     const [dishList, setDishList] = useState<IDishObject[]>([]);
-    const [randomDish, setRandomDish] = useState<IDishObject | null>(null);
+    const [showRandomDish, setShowRandomDish] = useState<boolean>(false);
+    const [isRandomRunning, setIsRandomRunning] = useState<boolean>(false);
+    const [newRandomDish, setNewRandomDish] = useState<IDishObject | null>(null);
 
     // Carousel
     const _getImagesData = () => {
@@ -62,14 +67,25 @@ export const CommonContextProvider = ({ children }: Props) => {
     // Dishes
     const _handleOnChosenType = (type: string) => {
         if (type === SettingsHelper.getSetting("random_dishes_title")) {
-            const randomDish = savedDishData[Math.floor(Math.random() * savedDishData.length)];
-            setRandomDish(randomDish);
+            setShowRandomDish(true);
             setDishList([]);
         } else {
             const filteredDishes = filterDishes(savedDishData, type);
             setDishList(filteredDishes);
-            setRandomDish(null);
+            setShowRandomDish(false);
         }
+    };
+
+    // Dishes
+    const launchRandomDish = (categories: string[]) => {
+        setIsRandomRunning(true);
+        setNewRandomDish(null);
+        //Timeout for random
+        setTimeout(() => {
+            const randomDish = getRandomDish(savedDishData, categories);
+            setNewRandomDish(randomDish);
+            setIsRandomRunning(false);
+        }, 2000);
     };
 
     // UI
@@ -117,9 +133,10 @@ export const CommonContextProvider = ({ children }: Props) => {
         }
     }, [savedDishData]);
 
-    // Dishes - Filter dishes by type
+    // Dishes - Filter dishes by type 
     useEffect(() => {
         _handleOnChosenType(dishType);
+        setNewRandomDish(null);
     }, [dishType]);
 
     const propsValues = {
@@ -128,11 +145,14 @@ export const CommonContextProvider = ({ children }: Props) => {
         selectedImage,
         dishType,
         dishList,
-        randomDish,
+        showRandomDish,
+        isRandomRunning,
+        newRandomDish,
         setIsNavBarOpen,
         setSelectedImages,
         getPathname,
         setDishType,
+        launchRandomDish,
         scrollToTarget,
     };
 
