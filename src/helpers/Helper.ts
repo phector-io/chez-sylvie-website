@@ -1,4 +1,5 @@
 import { IDishObject } from "../interfaces/ICommonContextProviderProps";
+
 import { SettingsHelper } from "./SettingsHelper";
 
 export const filterDishes = (dishes: IDishObject[], type: string): IDishObject[] => {

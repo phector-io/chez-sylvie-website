@@ -1,8 +1,12 @@
 import { FC } from 'react';
+
 import { useCommonContextProvider } from '../../providers/CommonContextProvider';
+
 import { SCROLL_TARGET } from '../../interfaces/Enum';
 
-const ScrollTop: FC = (): JSX.Element => {
+import styles from './style.module.css';
+
+const ScrollTopComponent: FC = (): JSX.Element => {
     const { scrollToTarget } = useCommonContextProvider();
 
     return (
@@ -12,4 +16,4 @@ const ScrollTop: FC = (): JSX.Element => {
     );
 };
 
-export default ScrollTop;
+export default ScrollTopComponent;

@@ -1,11 +1,13 @@
 import { FC } from "react";
+
 import { Routes, Route } from 'react-router-dom';
-import HomeComponent from "../Home/Home";
-import DishesComponent from "../Dishes/Dishes";
-import ContactComponent from "../Contact/Contact";
-import NotFoundComponent from "../NotFound/NotFound";
-import QuizComponent from "../Quiz/Quiz";
-import LegalMentionsComponent from "../LegalMentions/LegalMentions";
+
+import HomeComponent from "../components/Home/Home";
+import DishesComponent from "../components/Dishes/Dishes";
+import ContactComponent from "../components/Contact/Contact";
+import NotFoundComponent from "../components/NotFound/NotFound";
+import QuizComponent from "../components/Quiz/Quiz";
+import LegalMentionsComponent from "../components/LegalMentions/LegalMentions";
 
 const RoutesComponent: FC = (): JSX.Element => {
     return (
@@ -19,5 +21,4 @@ const RoutesComponent: FC = (): JSX.Element => {
         </Routes>
     );
 };
-
 export default RoutesComponent;

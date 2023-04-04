@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import styles from "./Quiz.module.css";
+
+import styles from "./style.module.css";
 
 const QuizComponent: FC = (): JSX.Element => {
 

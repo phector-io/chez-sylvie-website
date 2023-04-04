@@ -1,9 +1,12 @@
 import { FC } from "react";
-import styles from "./Contact.module.css";
-import { SettingsHelper } from "../../helpers/SettingsHelper";
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+
+import { SettingsHelper } from "../../helpers/SettingsHelper";
+import styles from "./style.module.css";
 
 const contacts = [
     {

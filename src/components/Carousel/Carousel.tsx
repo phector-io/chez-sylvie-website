@@ -1,6 +1,8 @@
 import { FC } from "react";
-import styles from "./Carousel.module.css";
+
 import { useCommonContextProvider } from "../../providers/CommonContextProvider";
+
+import styles from "./style.module.css";
 
 const CarouselComponent: FC= (): JSX.Element => {
     const { isNavBarOpen, carouselImages, selectedImage, setSelectedImages } = useCommonContextProvider();

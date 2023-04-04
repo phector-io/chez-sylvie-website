@@ -1,17 +1,14 @@
-import "./App.css";
-import NavBarComponent from "./components/NavBar/NavBar";
+import Router from "./Router/Router";
+
 import { CommonContextProvider } from "./providers/CommonContextProvider";
 
 function App() {
     return (
         <CommonContextProvider>
-            <div className="App">
-                <NavBarComponent />
-            </div>
+            <Router />
         </CommonContextProvider>
     );
 }
-
 export default App;
 
 //TODO

@@ -36,3 +36,9 @@ body {
     overflow-x: hidden;
     width: 100%;
 }
+
+#root {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}

@@ -1,5 +1,6 @@
 import { FC } from "react";
-import styles from "./LegalMentions.module.css";
+
+import styles from "./style.module.css";
 
 const LegalMentionsComponent: FC = (): JSX.Element => {
     return (

@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+
 import { ICommonContextProviderProps, IDishObject, IImageObject } from "../interfaces/ICommonContextProviderProps";
 
 import AOS from "aos";

@@ -1,10 +1,13 @@
 import { FC } from "react";
-import styles from "./Home.module.css";
+
+import { HEADER_TYPE } from "../../interfaces/Enum";
+
 import HeaderComponent from "../Header/Header";
+import FooterComponent from "../Footer/Footer";
+
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
-import { HEADER_TYPE } from "../../interfaces/Enum";
-import FooterComponent from "../Footer/Footer";
+import styles from "./style.module.css";
 
 const HomeComponent: FC = (): JSX.Element => {
 

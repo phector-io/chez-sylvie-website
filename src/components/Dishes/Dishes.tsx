@@ -1,9 +1,14 @@
 import { FC, useEffect } from "react";
-import styles from "./Dishes.module.css";
-import HeaderComponent from "../Header/Header";
+
 import { useCommonContextProvider } from "../../providers/CommonContextProvider";
+
+import HeaderComponent from "../Header/Header";
+
 import { HEADER_TYPE } from "../../interfaces/Enum";
+
 import { useLocation } from "react-router-dom";
+
+import styles from "./style.module.css";
 
 const DishesComponent: FC = (): JSX.Element => {
     const { pathname } = useLocation();

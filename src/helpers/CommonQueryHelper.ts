@@ -1,5 +1,5 @@
-import { DATA_TYPES } from "../interfaces/Enum";
 import { IImageObject, IDishObject, IQuestionObject, IRawData } from "../interfaces/ICommonContextProviderProps";
+import { DATA_TYPES } from "../interfaces/Enum";
 
 export const retrieveData = async (dataType: DATA_TYPES): Promise<IImageObject[] | IDishObject[] | IQuestionObject[]> => {
     try {

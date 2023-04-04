@@ -1,9 +1,10 @@
 import { FC, useEffect, useRef } from 'react';
-import styles from './Header.module.css';
+
+import { useCommonContextProvider } from '../../providers/CommonContextProvider';
+
+import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
+
 import { useNavigate } from "react-router-dom";
-import homeParallaxBg from '/assets/pizza.jpg';
-import menuParallaxBg from '/assets/bg-pizza.jpg';
-import { SettingsHelper } from '../../helpers/SettingsHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
     faConciergeBell,
@@ -15,8 +16,12 @@ import {
     faIceCream,
     faWineGlassAlt
 } from '@fortawesome/free-solid-svg-icons';
-import { useCommonContextProvider } from '../../providers/CommonContextProvider';
-import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
+
+import homeParallaxBg from '/assets/pizza.jpg';
+import menuParallaxBg from '/assets/bg-pizza.jpg';
+
+import { SettingsHelper } from '../../helpers/SettingsHelper';
+import styles from './style.module.css';
 
 const choiceGroup = [
     { name: SettingsHelper.getSetting("all_dishes_title"), icon: faConciergeBell},

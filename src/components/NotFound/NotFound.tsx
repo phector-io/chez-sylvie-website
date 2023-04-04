@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import styles from './style.module.css';
+
 const NotFoundComponent: FC = (): JSX.Element => {
 
     return (
