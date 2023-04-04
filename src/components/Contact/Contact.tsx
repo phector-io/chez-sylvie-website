@@ -55,13 +55,13 @@ const ContactComponent: FC = (): JSX.Element => {
                 <div className="opening" data-aos="fade-right">
                     <h4>Horaires</h4>
                     <ul>
-                        <li>Lundi: Fermé</li>
-                        <li>Mardi: Fermé</li>
-                        <li>Mercredi: Fermé</li>
-                        <li>Jeudi: 18:00 - 22:00</li>
-                        <li>Vendredi: 18:00 - 22:00</li>
-                        <li>Samedi: 18:00 - 22:00</li>
-                        <li>Dimanche: 18:00 - 22:00</li>
+                        <li>Lundi : Fermé</li>
+                        <li>Mardi : Fermé</li>
+                        <li>Mercredi : Fermé</li>
+                        <li>Jeudi : 18:00 - 22:00</li>
+                        <li>Vendredi : 18:00 - 22:00</li>
+                        <li>Samedi : 18:00 - 22:00</li>
+                        <li>Dimanche : 18:00 - 22:00</li>
                     </ul>
                 </div>
                 <div className="payment" data-aos="fade-right">
