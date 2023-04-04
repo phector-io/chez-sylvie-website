@@ -1,0 +1,10 @@
+.mentions {
+    padding: 80px 4% 2%;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+.mentions a {
+    color: #e20f2f;
+    text-decoration: underline;
+}

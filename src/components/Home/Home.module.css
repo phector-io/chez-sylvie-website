@@ -26,3 +26,15 @@
 .home__article__text strong {
     color: #e20f2f;
 }
+
+@media screen and (max-width: 880px) {
+    .home__content {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .home__content {
+        width: 80%;
+    }
+}

@@ -6,9 +6,11 @@ import menuParallaxBg from '/assets/bg-pizza.jpg';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
+    faConciergeBell,
     faPizzaSlice,
     faFireAlt,
-    faConciergeBell,
+    faBowlFood,
+    faChild,
     faShuffle,
     faIceCream,
     faWineGlassAlt
@@ -17,12 +19,14 @@ import { useCommonContextProvider } from '../../providers/CommonContextProvider'
 import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
 
 const choiceGroup = [
-    { name: "pizzas", icon: faPizzaSlice },
-    { name: "flamms", icon: faFireAlt },
-    { name: "pâtes", icon: faConciergeBell },
-    { name: "plat aléatoire", icon: faShuffle },
-    { name: "desserts", icon: faIceCream },
-    { name: "boissons", icon: faWineGlassAlt },
+    { name: SettingsHelper.getSetting("all_dishes_title"), icon: faConciergeBell},
+    { name: SettingsHelper.getSetting("pizza_dishes_title"), icon: faPizzaSlice },
+    { name: SettingsHelper.getSetting("flamm_dishes_title"), icon: faFireAlt },
+    { name: SettingsHelper.getSetting("pasta_dishes_title"), icon: faBowlFood },
+    { name: SettingsHelper.getSetting("children_dishes_title"), icon:  faChild },
+    { name: SettingsHelper.getSetting("dessert_dishes_title"), icon: faIceCream },
+    { name: SettingsHelper.getSetting("drink_dishes_title"), icon: faWineGlassAlt },
+    { name: SettingsHelper.getSetting("random_dishes_title"), icon: faShuffle },
 ];
 
 type Props = {
@@ -35,8 +39,6 @@ const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
     const history = useNavigate();
 
     const _handleClick = (choice: string) => {
-
-        console.log('~> click'); //DELETE
         scrollToTarget(SCROLL_TARGET.BOTTOM);
         setDishType(choice);
     };

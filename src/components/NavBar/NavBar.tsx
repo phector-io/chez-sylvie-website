@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import styles from "./NavBar.module.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import RoutesComponent from "./Routes";

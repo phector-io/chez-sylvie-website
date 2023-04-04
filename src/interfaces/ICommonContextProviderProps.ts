@@ -4,11 +4,12 @@ export interface ICommonContextProviderProps {
     isNavBarOpen: boolean;
     carouselImages: IImageObject[];
     selectedImage: IImageObject | null;
-    dishType: string | null;
+    dishType: string;
     dishList: IDishObject[];
     randomDish: IDishObject | null;
     setIsNavBarOpen: (isOpen: boolean) => void;
     setSelectedImages: (selectedImg: IImageObject) => void;
+    getPathname: (pathname: string) => void;
     setDishType: (dish: string) => void;
     scrollToTarget: (target: SCROLL_TARGET) => void;
 }

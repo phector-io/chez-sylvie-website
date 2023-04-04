@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { retrieveData } from "../helpers/CommonQueryHelper";
 import { DATA_TYPES, SCROLL_TARGET } from "../interfaces/Enum";
+import { SettingsHelper } from "../helpers/SettingsHelper";
+import { filterDishes } from "../helpers/Helper";
 
 type Props = {
     children: ReactNode;
@@ -14,11 +16,12 @@ const CommonContext = createContext<ICommonContextProviderProps>({
     isNavBarOpen: false,
     carouselImages: [],
     selectedImage: null,
-    dishType: null,
+    dishType: "",
     dishList: [],
     randomDish: null,
     setIsNavBarOpen: () => {},
     setSelectedImages: () => {},
+    getPathname: () => {},
     setDishType: () => {},
     scrollToTarget: () => {},
 });
@@ -29,43 +32,51 @@ export const CommonContextProvider = ({ children }: Props) => {
     const [isNavBarOpen, setIsNavBarOpen] = useState<boolean>(false);
     const [carouselImages, setCarouselImages] = useState<IImageObject[]>([]);
     const [selectedImage, setSelectedImages] = useState<IImageObject | null>(null);
-    const [dishType, setDishType] = useState<string | null>(null);
+    const [isDishesPath, setIsDishesPath] = useState<boolean>(false);
+    const [dishType, setDishType] = useState<string>("");
+    const [savedDishData, setSavedDishData] = useState<IDishObject[]>([]);
     const [dishList, setDishList] = useState<IDishObject[]>([]);
     const [randomDish, setRandomDish] = useState<IDishObject | null>(null);
 
-    // Carousel - Get images
-    const getImagesData = () => {
+    // Carousel
+    const _getImagesData = () => {
         retrieveData(DATA_TYPES.IMAGES).then((images) => {
+            // console.log('~> getImagesData > retrieveData', images);
             setCarouselImages(images as IImageObject[]);
         });
     };
 
-    // Dishes - Get dishes
-    const getDishesData = (type: string) => {
-        retrieveData(DATA_TYPES.DISHES).then((dishes) => {
-            const dishesList = dishes as IDishObject[];
-            if (type === "plat aléatoire") {
-                const filtered = dishesList.filter((dish) => {
-                    return dish.type !== "boissons" && dish.type !== "desserts" && dish.type !== "enfants";
-                });
-                setDishList([]);
-                setRandomDish(filtered[Math.floor(Math.random() * filtered.length)]);
-            } else {
-                const filteredDishes = dishesList.filter((dish) => dish.type === type);
-                setDishList(filteredDishes as IDishObject[]);
-                setRandomDish(null);
-            }
-            setDishType(null);
+    const getPathname = (pathname: string) => {
+        setIsDishesPath(pathname === "/plats");
+    };
+
+    // Dishes
+    const _getDishesData = () => {
+        retrieveData(DATA_TYPES.DISHES).then((res) => {
+            // console.log('~> getDishesData > retrieveData', res);
+            setSavedDishData(res as IDishObject[]);
         });
     };
 
-    //FIXME: Only work on second click
-    // ScrollTo
+    // Dishes
+    const _handleOnChosenType = (type: string) => {
+        if (type === SettingsHelper.getSetting("random_dishes_title")) {
+            const randomDish = savedDishData[Math.floor(Math.random() * savedDishData.length)];
+            setRandomDish(randomDish);
+            setDishList([]);
+        } else {
+            const filteredDishes = filterDishes(savedDishData, type);
+            setDishList(filteredDishes);
+            setRandomDish(null);
+        }
+    };
+
+    // UI
     const scrollToTarget = (target: SCROLL_TARGET) => {
         const screenHeigth = window.innerHeight;
         window.scrollTo({
-            top: target === SCROLL_TARGET.TOP ? 0 : screenHeigth,
-            behavior: "smooth"
+            top: target === SCROLL_TARGET.BOTTOM ? screenHeigth : 0,
+            behavior: "smooth",
         });
     };
 
@@ -81,7 +92,7 @@ export const CommonContextProvider = ({ children }: Props) => {
     // Carousel - Get images
     useEffect(() => {
         if (isNavBarOpen && !carouselImages.length) {
-            getImagesData();
+            _getImagesData();
         }
     }, [isNavBarOpen, carouselImages]);
 
@@ -90,11 +101,24 @@ export const CommonContextProvider = ({ children }: Props) => {
         setSelectedImages(carouselImages[0]);
     }, [carouselImages]);
 
-    // Dishes - Get dishes
+    // Dishes - Get dishes where location is "/plats"
     useEffect(() => {
-        if (dishType) {
-            getDishesData(dishType);
+        if (isDishesPath) {
+            _getDishesData();
+            setDishType(SettingsHelper.getSetting("all_dishes_title"));
         }
+    }, [isDishesPath]);
+    
+    // Dishes - First render - Set dishList "all dishes"
+    useEffect(() => {
+        if (savedDishData.length) {
+            setDishList(savedDishData);
+        }
+    }, [savedDishData]);
+
+    // Dishes - Filter dishes by type
+    useEffect(() => {
+        _handleOnChosenType(dishType);
     }, [dishType]);
 
     const propsValues = {
@@ -106,6 +130,7 @@ export const CommonContextProvider = ({ children }: Props) => {
         randomDish,
         setIsNavBarOpen,
         setSelectedImages,
+        getPathname,
         setDishType,
         scrollToTarget,
     };

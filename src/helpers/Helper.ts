@@ -1,5 +1,23 @@
 import { IDishObject } from "../interfaces/ICommonContextProviderProps";
+import { SettingsHelper } from "./SettingsHelper";
 
 export const filterDishes = (dishes: IDishObject[], type: string): IDishObject[] => {
-    return dishes.filter((dish: IDishObject) => dish.type === type);
+    switch (type) {
+        case SettingsHelper.getSetting("all_dishes_title"):
+            return dishes;
+        case SettingsHelper.getSetting("pizza_dishes_title"):
+            return dishes.filter((dish) => dish.type === "pizzas");
+        case SettingsHelper.getSetting("flamm_dishes_title"):
+            return dishes.filter((dish) => dish.type === "flamms");
+        case SettingsHelper.getSetting("pasta_dishes_title"):
+            return dishes.filter((dish) => dish.type === "pâtes");
+        case SettingsHelper.getSetting("children_dishes_title"):
+            return dishes.filter((dish) => dish.type === "enfants");
+        case SettingsHelper.getSetting("dessert_dishes_title"):
+            return dishes.filter((dish) => dish.type === "desserts");
+        case SettingsHelper.getSetting("drink_dishes_title"):
+            return dishes.filter((dish) => dish.type === "boissons");
+        default:
+            return []
+    };
 };

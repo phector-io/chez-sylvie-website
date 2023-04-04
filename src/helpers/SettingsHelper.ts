@@ -20,7 +20,14 @@ const GENERAL_SETTINGS: ISettings = {
     contact_facebook_link: "https://www.facebook.com/chezsylviesarralbe",
     contact_facebook_link_title: "Voir sur Facebook",
     contact_facebook_text: "Facebook",
-    dishes_random_title: "Plat aléatoire",
+    all_dishes_title: "Toute la carte",
+    pizza_dishes_title: "Nos pizzas",
+    flamm_dishes_title: "Nos flamms",
+    pasta_dishes_title: "Nos pâtes",
+    children_dishes_title: "Nos plats enfants",
+    dessert_dishes_title: "Nos desserts",
+    drink_dishes_title: "Nos boissons",
+    random_dishes_title: "Plat aléatoire",
 };
 
 class SettingsHelper {
