@@ -14,7 +14,8 @@ import {
     faChild,
     faShuffle,
     faIceCream,
-    faWineGlassAlt
+    faWineGlassAlt,
+    faFileLines
 } from '@fortawesome/free-solid-svg-icons';
 
 import homeParallaxBg from '/assets/pizza.jpg';
@@ -32,6 +33,7 @@ const choiceGroup = [
     { name: SettingsHelper.getSetting("dessert_dishes_title"), icon: faIceCream },
     { name: SettingsHelper.getSetting("drink_dishes_title"), icon: faWineGlassAlt },
     { name: SettingsHelper.getSetting("random_dishes_title"), icon: faShuffle },
+    { name: SettingsHelper.getSetting("see_my_order"), icon: faFileLines},
 ];
 
 type Props = {

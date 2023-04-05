@@ -77,10 +77,10 @@
     background: rgba(0, 0, 0, 0.822);
     color: #fff;
     border: none;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
@@ -91,8 +91,9 @@
 }
 
 .header_overlay_dishes ul {
+    /* border: 1px solid #f00; */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .header_overlay_dishes span {
@@ -100,11 +101,38 @@
 }
 
 .header_overlay_dishes svg {
-    font-size: 50px;
+    font-size: 45px;
     margin-bottom: 30px;
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (min-width: 1800px) {
+    .header_overlay_home h2 {
+        font-size: 4rem;
+    }
+
+    .header_overlay_home p {
+        font-size: 1.8rem;
+    }
+
+    .header_overlay_home button {
+        font-size: 1.2rem;
+    }
+
+    .header_overlay_dishes button {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+    }
+
+    .header_overlay_dishes span {
+        font-size: 1.2rem;
+    }
+
+    .header_overlay_dishes svg {
+        font-size: 50px;
+        margin-bottom: 35px;
+    }
+}
 
 @media screen and (max-width: 980px) {
 
@@ -112,12 +140,7 @@
 
 @media screen and (max-width: 880px) {
     .header_overlay_dishes ul {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .header_overlay_dishes button {
-        width: 200px;
-        height: 200px;
+        margin-top: 50px;
     }
 }
 
@@ -133,14 +156,13 @@
     .header_overlay_home button {
         font-size: 1rem;
     }
+}
 
-    .header_overlay_dishes ul {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+@media screen and (max-width: 500px) {
     .header_overlay_dishes button {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
+        margin: 2px;
     }
     
     .header_overlay_dishes span {
@@ -148,15 +170,24 @@
     }
     
     .header_overlay_dishes svg {
-        font-size: 40px;
+        font-size: 35px;
+        margin-bottom: 15px;
     }
 }
 
-@media screen and (max-width: 550px) {}
-
-/*TODO
-• Add media queries for mobile
-*/
-
-
-
+@media screen and (max-width: 400px) {
+    .header_overlay_dishes button {
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+    }
+    
+    .header_overlay_dishes span {
+        font-size: 0.7rem;
+    }
+    
+    .header_overlay_dishes svg {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+}

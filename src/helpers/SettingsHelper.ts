@@ -28,6 +28,7 @@ const GENERAL_SETTINGS: ISettings = {
     dessert_dishes_title: "Nos desserts",
     drink_dishes_title: "Nos boissons",
     random_dishes_title: "Plat aléatoire",
+    see_my_order: "Ma commande",
     random_form_info: "Selectionnez une ou plusieurs catégories*",
     random_dishes_button_text: "C'est parti !",
 };

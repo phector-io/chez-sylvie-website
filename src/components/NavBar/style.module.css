@@ -152,3 +152,9 @@
         left: 50px;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .navbar__hamburger svg {
+        height: 2.5em; /*TODO show in mobile */
+    }
+}

@@ -77,6 +77,8 @@ export const CommonContextProvider = ({ children }: Props) => {
         });
     };
 
+    console.log('~> ', window.innerWidth); //DELETE
+
     // Carousel - Set selected image
     const updateSelectedImage = (image: IImageObject) => {
         dispatch({

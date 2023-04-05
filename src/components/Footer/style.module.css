@@ -13,3 +13,15 @@
 .footer a {
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .footer a {
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer a {
+        font-size: .6rem;
+    }
+}
