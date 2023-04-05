@@ -123,7 +123,7 @@ export const CommonContextProvider = ({ children }: Props) => {
         }
     };
 
-    // Dishes - Launch random dish
+    // Random dish - Launch random dish
     const launchRandomDish = (categories: string[]) => {
         dispatch({
             type: "SET_ON_LAUNCH_RANDOM_DISH",

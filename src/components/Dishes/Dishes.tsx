@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import RandomDishComponent from "../RandomDish/RandomDish";
+import ScrollTopComponent from "../ScrollTop/ScrollTop";
 
 const DishesComponent: FC = (): JSX.Element => {
     const { dishType, dishList, showRandomDish, getPathname } = useCommonContextProvider();
@@ -43,6 +44,7 @@ const DishesComponent: FC = (): JSX.Element => {
                                 </div>
                             ))}
                         </ul>
+                        <ScrollTopComponent />
                     </div>
                 ) : (
                     <RandomDishComponent />

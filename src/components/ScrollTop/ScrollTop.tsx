@@ -11,7 +11,7 @@ const ScrollTopComponent: FC = (): JSX.Element => {
 
     return (
        <button onClick={() => scrollToTarget(SCROLL_TARGET.TOP)}>
-        Scroll
+            Scroll to top
        </button>
     );
 };
