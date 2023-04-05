@@ -10,7 +10,6 @@ import img from "/assets/pizzeria2.jpg";
 import styles from "./style.module.css";
 
 const HomeComponent: FC = (): JSX.Element => {
-
     return (
         <div className={styles.home}>
             <HeaderComponent type={HEADER_TYPE.HOME} />
@@ -36,6 +35,3 @@ const HomeComponent: FC = (): JSX.Element => {
 };
 
 export default HomeComponent;
-
-// TODO
-// Add return top button

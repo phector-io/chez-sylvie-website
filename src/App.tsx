@@ -1,6 +1,6 @@
-import Router from "./Router/Router";
-
 import { CommonContextProvider } from "./providers/CommonContextProvider";
+
+import Router from "./Router/Router";
 
 function App() {
     return (

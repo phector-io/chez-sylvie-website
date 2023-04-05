@@ -9,12 +9,12 @@ export interface ICommonContextProviderProps {
     showRandomDish: boolean;
     isRandomRunning: boolean;
     newRandomDish: IDishObject | null;
-    setIsNavBarOpen: (isOpen: boolean) => void;
-    setSelectedImages: (selectedImg: IImageObject) => void;
     getPathname: (pathname: string) => void;
-    setDishType: (dish: string) => void;
     launchRandomDish: (categories: string[]) => void;
     scrollToTarget: (target: SCROLL_TARGET) => void;
+    toggleNavBar: () => void;
+    updateSelectedImage: (image: IImageObject) => void;
+    updateSelectedDishType: (type: string) => void;
 }
 
 export interface IRawData {

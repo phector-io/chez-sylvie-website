@@ -39,13 +39,13 @@ type Props = {
 };
 
 const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
-    const { setDishType, scrollToTarget } = useCommonContextProvider();
+    const { updateSelectedDishType, scrollToTarget } = useCommonContextProvider();
     const paralaxRef = useRef<HTMLDivElement>(null);
     const history = useNavigate();
 
     const _handleClick = (choice: string) => {
         scrollToTarget(SCROLL_TARGET.BOTTOM);
-        setDishType(choice);
+        updateSelectedDishType(choice);
     };
 
     // On scroll paralax effect

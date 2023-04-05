@@ -5,7 +5,7 @@ import { useCommonContextProvider } from "../../providers/CommonContextProvider"
 import styles from "./style.module.css";
 
 const CarouselComponent: FC= (): JSX.Element => {
-    const { isNavBarOpen, carouselImages, selectedImage, setSelectedImages } = useCommonContextProvider();
+    const { isNavBarOpen, carouselImages, selectedImage, updateSelectedImage } = useCommonContextProvider();
 
     return (
         <div 
@@ -29,7 +29,7 @@ const CarouselComponent: FC= (): JSX.Element => {
                         title={img.title}
                         src={img.source}
                         alt={img.title}
-                        onClick={() => setSelectedImages(img)}
+                        onClick={() => updateSelectedImage(img)}
                     />
                 ))}
             </div>

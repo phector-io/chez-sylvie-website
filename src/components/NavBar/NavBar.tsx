@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { useCommonContextProvider } from "../../providers/CommonContextProvider";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPizzaSlice, faPhone, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,29 +12,19 @@ import { SettingsHelper } from "../../helpers/SettingsHelper";
 import styles from "./style.module.css";
 
 const navLinkList = [
-    "accueil",
-    "plats",
-    "contact",
-    "quiz",
+    { name: "accueil", icon: faHouse },
+    { name: "plats", icon: faPizzaSlice },
+    { name: "contact", icon: faPhone },
+    { name: "quiz", icon: faQuestionCircle },
 ];
 
 const NavBarComponent: FC = (): JSX.Element => {
-    const { isNavBarOpen, setIsNavBarOpen } = useCommonContextProvider();
+    const { isNavBarOpen, getPathname, toggleNavBar } = useCommonContextProvider();
+    const { pathname } = useLocation();
 
-    const getIcon = (link: string) => {
-        switch (link) {
-            case "accueil":
-                return faHouse;
-            case "plats":
-                return faPizzaSlice;
-            case "contact":
-                return faPhone;
-            case "quiz":
-                return faQuestionCircle;
-            default:
-                return faHouse;
-        }
-    };
+    useEffect(() => {
+        getPathname(pathname);
+    }, [pathname]);
 
     return (
         <nav className={styles.navbar} role="menubar">
@@ -47,12 +37,12 @@ const NavBarComponent: FC = (): JSX.Element => {
                         {navLinkList.map((link, idx) => (
                             <li key={idx} role="menuitem">
                                 <Link
-                                    to={`/${link === "accueil" ? "" : link}`}
-                                    title={link.charAt(0).toUpperCase() + link.slice(1)}
-                                    onClick={() => setIsNavBarOpen(false)}
+                                    to={`/${link.name === "accueil" ? "" : link.name}`}
+                                    title={link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+                                    onClick={() => toggleNavBar()}
                                 >
-                                    <FontAwesomeIcon icon={getIcon(link)} />
-                                    <span>{link.charAt(0).toUpperCase() + link.slice(1)}</span>
+                                    <FontAwesomeIcon icon={link.icon} />
+                                    <span>{link.name.charAt(0).toUpperCase() + link.name.slice(1)}</span>
                                 </Link>
                             </li>
                         ))}
@@ -60,7 +50,8 @@ const NavBarComponent: FC = (): JSX.Element => {
                     <CarouselComponent />
                 </nav>
                 <label className={styles.navbar__hamburger}>
-                    <input type="checkbox" checked={isNavBarOpen} onClick={() => setIsNavBarOpen(!isNavBarOpen)}/>
+                    {/* TEST readOnly ??*/}
+                    <input type="checkbox" readOnly checked={isNavBarOpen} onClick={() => toggleNavBar()}/>
                     <svg viewBox="0 0 32 32">
                         <path
                             className={`${styles.line} ${styles.line__top__bottom}`}
@@ -74,13 +65,6 @@ const NavBarComponent: FC = (): JSX.Element => {
                         />
                     </svg>
                 </label>
-                {/* <button
-                    className={styles.navbar__burger}
-                    title="Menu principal"
-                    onClick={() => setIsNavBarOpen(!isNavBarOpen)}
-                >
-                    <span className={styles.navbar__burger__bar}></span>
-                </button> */}
             </div>
         </nav>
     );

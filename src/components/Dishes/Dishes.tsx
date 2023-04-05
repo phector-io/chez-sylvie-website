@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 
 import { useCommonContextProvider } from "../../providers/CommonContextProvider";
 
@@ -8,22 +8,9 @@ import { HEADER_TYPE } from "../../interfaces/Enum";
 
 import { useLocation } from "react-router-dom";
 
-import { NewtonsCradle } from '@uiball/loaders'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-
 import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import RandomDishComponent from "../RandomDish/RandomDish";
-
-
-const randomCategories = [
-    SettingsHelper.getSetting("pizza_dishes_title"),
-    SettingsHelper.getSetting("flamm_dishes_title"),
-    SettingsHelper.getSetting("pasta_dishes_title"),
-    SettingsHelper.getSetting("dessert_dishes_title"),
-    SettingsHelper.getSetting("drink_dishes_title"),
-];
 
 const DishesComponent: FC = (): JSX.Element => {
     const { dishType, dishList, showRandomDish, getPathname } = useCommonContextProvider();

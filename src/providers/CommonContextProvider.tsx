@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useReducer, useState } from "react";
 
 import { ICommonContextProviderProps, IDishObject, IImageObject } from "../interfaces/ICommonContextProviderProps";
 
@@ -8,9 +8,24 @@ import { retrieveData } from "../helpers/CommonQueryHelper";
 import { DATA_TYPES, SCROLL_TARGET } from "../interfaces/Enum";
 import { SettingsHelper } from "../helpers/SettingsHelper";
 import { filterDishes, getRandomDish } from "../helpers/Helper";
+import { CommonReducer } from "../reducers/CommonReducer";
 
 type Props = {
     children: ReactNode;
+};
+
+const defaultState = {
+    pathname: "",
+    isNavBarOpen: false,
+    carouselImages: [],
+    selectedImage: null,
+    isDishesPath: false,
+    dishType: "",
+    allDishes: [],
+    dishList: [],
+    showRandomDish: false,
+    isRandomRunning: false,
+    newRandomDish: null,
 };
 
 const CommonContext = createContext<ICommonContextProviderProps>({
@@ -22,73 +37,108 @@ const CommonContext = createContext<ICommonContextProviderProps>({
     showRandomDish: false,
     isRandomRunning: false,
     newRandomDish: null,
-    setIsNavBarOpen: () => {},
-    setSelectedImages: () => {},
     getPathname: () => {},
-    setDishType: () => {},
     launchRandomDish: () => {},
     scrollToTarget: () => {},
+    toggleNavBar: () => {},
+    updateSelectedImage: () => {},
+    updateSelectedDishType: () => {},
 });
 
 export const useCommonContextProvider = () => useContext(CommonContext);
 
 export const CommonContextProvider = ({ children }: Props) => {
-    const [isNavBarOpen, setIsNavBarOpen] = useState<boolean>(false);
-    const [carouselImages, setCarouselImages] = useState<IImageObject[]>([]);
-    const [selectedImage, setSelectedImages] = useState<IImageObject | null>(null);
-    const [isDishesPath, setIsDishesPath] = useState<boolean>(false);
-    const [dishType, setDishType] = useState<string>("");
-    const [savedDishData, setSavedDishData] = useState<IDishObject[]>([]);
-    const [dishList, setDishList] = useState<IDishObject[]>([]);
-    const [showRandomDish, setShowRandomDish] = useState<boolean>(false);
-    const [isRandomRunning, setIsRandomRunning] = useState<boolean>(false);
-    const [newRandomDish, setNewRandomDish] = useState<IDishObject | null>(null);
-
-    // Carousel
-    const _getImagesData = () => {
-        retrieveData(DATA_TYPES.IMAGES).then((images) => {
-            // console.log('~> getImagesData > retrieveData', images);
-            setCarouselImages(images as IImageObject[]);
-        });
-    };
+    const [state, dispatch] = useReducer(CommonReducer, defaultState);
 
     const getPathname = (pathname: string) => {
-        setIsDishesPath(pathname === "/plats");
+        dispatch({
+            type: "SET_PATHNAME",
+            pathname: pathname,
+        });
+    };
+    
+    // Navbar - Toggle navbar
+    const toggleNavBar = () => {
+        dispatch({
+            type: "SET_TOGGLE_NAVBAR",
+            isNavBarOpen: !state.isNavBarOpen,
+        });
     };
 
-    // Dishes
+    // Carousel - Get images data
+    const _getImagesData = () => {
+        retrieveData(DATA_TYPES.IMAGES).then((result) => {
+            // console.log('~> getImagesData > retrieveData', images);
+            dispatch({
+                type: "SET_CAROUSEL_IMAGES",
+                carouselImages: result as IImageObject[],
+            });
+
+        });
+    };
+
+    // Carousel - Set selected image
+    const updateSelectedImage = (image: IImageObject) => {
+        dispatch({
+            type: "SET_SELECTED_IMAGE",
+            selectedImage: image,
+        });
+    };
+
+    // Dishes - Get dishes data
     const _getDishesData = () => {
-        retrieveData(DATA_TYPES.DISHES).then((res) => {
-            // console.log('~> getDishesData > retrieveData', res);
-            setSavedDishData(res as IDishObject[]);
+        retrieveData(DATA_TYPES.DISHES).then((result) => {
+            // console.log('~> getDishesData > retrieveData', result);
+            dispatch({
+                type: "SET_ALL_DISHES",
+                allDishes: result as IDishObject[],
+            });
+        });
+    };
+
+    // Dishes - Set dish type
+    const updateSelectedDishType = (type: string) => {
+        dispatch({
+            type: "SET_DISH_TYPE",
+            dishType: type,
         });
     };
 
     // Dishes
-    const _handleOnChosenType = (type: string) => {
+    const _onChangeSelectedDishType = (type: string) => {
         if (type === SettingsHelper.getSetting("random_dishes_title")) {
-            setShowRandomDish(true);
-            setDishList([]);
+            dispatch({
+                type: "SET_ON_CHANGE_DISH_TYPE",
+                dishList: [],
+                showRandomDish: true,
+            })
         } else {
-            const filteredDishes = filterDishes(savedDishData, type);
-            setDishList(filteredDishes);
-            setShowRandomDish(false);
+            dispatch({
+                type: "SET_ON_CHANGE_DISH_TYPE",
+                dishList: filterDishes(state.allDishes, type),
+                showRandomDish: false,
+            })
         }
     };
 
-    // Dishes
+    // Dishes - Launch random dish
     const launchRandomDish = (categories: string[]) => {
-        setIsRandomRunning(true);
-        setNewRandomDish(null);
-        //Timeout for random
+        dispatch({
+            type: "SET_ON_LAUNCH_RANDOM_DISH",
+            isRandomRunning: true,
+            newRandomDish: null,
+        });
+
         setTimeout(() => {
-            const randomDish = getRandomDish(savedDishData, categories);
-            setNewRandomDish(randomDish);
-            setIsRandomRunning(false);
+            dispatch({
+                type: "SET_ON_LAUNCH_RANDOM_DISH",
+                isRandomRunning: false,
+                newRandomDish: getRandomDish(state.allDishes, categories),
+            });
         }, 2000);
     };
 
-    // UI
+    // UI - Scroll to top or bottom
     const scrollToTarget = (target: SCROLL_TARGET) => {
         const screenHeigth = window.innerHeight;
         window.scrollTo({
@@ -106,54 +156,74 @@ export const CommonContextProvider = ({ children }: Props) => {
         });
     }, []);
 
-    // Carousel - Get images
     useEffect(() => {
-        if (isNavBarOpen && !carouselImages.length) {
+        dispatch({
+            type: "SET_TOGGLE_IS_DISHES_PATH",
+            isDishesPath: state.pathname === "/plats",
+        });
+    }, [state.pathname]);
+
+    // Carousel - Get images where navbar is open
+    useEffect(() => {
+        if (state.isNavBarOpen && !state.carouselImages.length) {
             _getImagesData();
         }
-    }, [isNavBarOpen, carouselImages]);
+    }, [state.isNavBarOpen, state.carouselImages]);
 
     // Carousel - Set first image as selected
-    useEffect(() => {
-        setSelectedImages(carouselImages[0]);
-    }, [carouselImages]);
+    useEffect(() => {    
+        dispatch({
+            type: "SET_SELECTED_IMAGE",
+            selectedImage: state.carouselImages[0],
+        });
+    }, [state.carouselImages]);
 
     // Dishes - Get dishes where location is "/plats"
     useEffect(() => {
-        if (isDishesPath) {
+        if (state.isDishesPath) {
             _getDishesData();
-            setDishType(SettingsHelper.getSetting("all_dishes_title"));
+            dispatch({
+                type: "SET_DISH_TYPE",
+                dishType: SettingsHelper.getSetting("all_dishes_title"),
+            });
         }
-    }, [isDishesPath]);
-    
-    // Dishes - First render - Set dishList "all dishes"
-    useEffect(() => {
-        if (savedDishData.length) {
-            setDishList(savedDishData);
-        }
-    }, [savedDishData]);
+    }, [state.isDishesPath]);
 
     // Dishes - Filter dishes by type 
     useEffect(() => {
-        _handleOnChosenType(dishType);
-        setNewRandomDish(null);
-    }, [dishType]);
+        _onChangeSelectedDishType(state.dishType);
+    
+        dispatch({
+            type: "SET_NEW_RANDOM_DISH",
+            newRandomDish: null,
+        });
+    }, [state.dishType]);
+    
+    // Dishes - First render - Set dishList "all dishes"
+    useEffect(() => {
+        if (state.allDishes.length) {
+            dispatch({
+                type: "SET_DISH_LIST",
+                dishList: state.allDishes,
+            });
+        }
+    }, [state.allDishes]);
 
     const propsValues = {
-        isNavBarOpen,
-        carouselImages,
-        selectedImage,
-        dishType,
-        dishList,
-        showRandomDish,
-        isRandomRunning,
-        newRandomDish,
-        setIsNavBarOpen,
-        setSelectedImages,
+        isNavBarOpen: state.isNavBarOpen,
+        carouselImages: state.carouselImages,
+        selectedImage: state.selectedImage,
+        dishType: state.dishType,
+        dishList: state.dishList,
+        showRandomDish: state.showRandomDish,
+        isRandomRunning: state.isRandomRunning,
+        newRandomDish: state.newRandomDish,
         getPathname,
-        setDishType,
         launchRandomDish,
         scrollToTarget,
+        toggleNavBar,
+        updateSelectedImage,
+        updateSelectedDishType,
     };
 
     return (
