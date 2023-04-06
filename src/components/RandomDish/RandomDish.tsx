@@ -49,7 +49,7 @@ const RandomDish: FC = (): JSX.Element => {
                                 </svg>
                             </label>
                             <span>
-                                {category.split("Nos ")[1]}
+                                {category}
                             </span>
                         </div>
                     ))}
