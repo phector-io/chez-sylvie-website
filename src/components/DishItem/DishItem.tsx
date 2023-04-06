@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { IDishObject } from '../../interfaces/ICommonContextProviderProps';
+import { IDishObject } from '../../interfaces/IDishContextProviderProps';
 
 import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';

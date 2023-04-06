@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import styles from './style.module.css';
+import { SettingsHelper } from '../../helpers/SettingsHelper';
 
 const Footer: FC = (): JSX.Element => {
 
@@ -14,18 +15,18 @@ const Footer: FC = (): JSX.Element => {
                 <li>
                     <a
                         onClick={handleClick}
-                        title="Voir les mentions légales"
+                        title={SettingsHelper.getSetting("footer_mentions_title")}
                     >
-                        Mentions légales
+                        {SettingsHelper.getSetting("footer_mentions_text")}
                     </a>
                 </li>
                 <li>
                     <a
                         href="https://p-hector-dev.netlify.app"
                         target="_blank"
-                        title="Lien vers le site du développeur Web"
+                        title={SettingsHelper.getSetting("footer_created_by_title")}
                     >
-                        Réalisation du site par Pascal Hector
+                        {SettingsHelper.getSetting("footer_created_by_text")}
                     </a>
                 </li>
             </ul>

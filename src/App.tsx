@@ -1,12 +1,15 @@
-import { CommonContextProvider } from "./providers/CommonContextProvider";
+import { AppContextProvider } from "./providers/AppContextProvider";
+import { DishContextProvider } from "./providers/DishContextProvider";
 
 import Router from "./Router/Router";
 
 function App() {
     return (
-        <CommonContextProvider>
-            <Router />
-        </CommonContextProvider>
+        <AppContextProvider>
+            <DishContextProvider>
+                <Router />
+            </DishContextProvider>
+        </AppContextProvider>
     );
 }
 export default App;

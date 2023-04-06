@@ -1,21 +1,23 @@
 import { FC, useEffect } from "react";
 
-import { useCommonContextProvider } from "../../providers/CommonContextProvider";
-
-import Header from "../Header/Header";
+import { useAppContextProvider } from "../../providers/AppContextProvider";
+import { useDishContextProvider } from "../../providers/DishContextProvider";
 
 import { HEADER_TYPE } from "../../interfaces/Enum";
+
+import Header from "../Header/Header";
+import RandomDish from "../RandomDish/RandomDish";
+import ScrollTop from "../ScrollTop/ScrollTop";
+import DishItem from "../DishItem/DishItem";
 
 import { useLocation } from "react-router-dom";
 
 import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
-import RandomDish from "../RandomDish/RandomDish";
-import ScrollTop from "../ScrollTop/ScrollTop";
-import DishItem from "../DishItem/DishItem";
 
 const DishList: FC = (): JSX.Element => {
-    const { dishType, dishList, showRandomDish, getPathname } = useCommonContextProvider();
+    const { getPathname } = useAppContextProvider();
+    const { dishType, dishList, showRandomDish } = useDishContextProvider();
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const DishList: FC = (): JSX.Element => {
         <div id="dishes" className={styles.dishes}>
             <Header type={HEADER_TYPE.DISHES} />
             <div className={styles.dishes__container}>
-                <h1>{dishType}</h1>
+                <h1>{dishType.charAt(0).toUpperCase() + dishType.slice(1)}</h1>
                 {showRandomDish && (
                     <p className={styles.random__form__info}>{SettingsHelper.getSetting("random_form_info")}</p>
                 )}

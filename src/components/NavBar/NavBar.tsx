@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 
-import { useCommonContextProvider } from "../../providers/CommonContextProvider";
+import { useAppContextProvider } from "../../providers/AppContextProvider";
 
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,14 +12,14 @@ import { SettingsHelper } from "../../helpers/SettingsHelper";
 import styles from "./style.module.css";
 
 const navLinkList = [
-    { name: "accueil", icon: faHouse },
-    { name: "plats", icon: faPizzaSlice },
-    { name: "contact", icon: faPhone },
-    { name: "quiz", icon: faQuestionCircle },
+    { name: SettingsHelper.getSetting("route_name_home"), icon: faHouse },
+    { name: SettingsHelper.getSetting("route_name_menu"), icon: faPizzaSlice },
+    { name: SettingsHelper.getSetting("route_name_contact"), icon: faPhone },
+    { name: SettingsHelper.getSetting("route_name_quiz"), icon: faQuestionCircle },
 ];
 
 const NavBar: FC = (): JSX.Element => {
-    const { isNavBarOpen, getPathname, toggleNavBar } = useCommonContextProvider();
+    const { isNavBarOpen, getPathname, toggleNavBar } = useAppContextProvider();
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const NavBar: FC = (): JSX.Element => {
         <nav className={styles.navbar} role="menubar">
             <div className={`${styles.navbar__content} ${isNavBarOpen ? styles.show__navbar : ""}`}>
                 <h3 className={styles.navbar__logo}>
-                    Pizzeria<span>{SettingsHelper.getSetting("company_name")}</span>
+                    {SettingsHelper.getSetting("company_type")}<span>{SettingsHelper.getSetting("company_name")}</span>
                 </h3>
                 <nav className={styles.navbar__nav} role="navigation">
                     <ul role="menu" style={{transition: `left ${isNavBarOpen ? '1.5s' : '.1s'} ease-in-out`}}>

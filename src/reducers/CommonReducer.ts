@@ -1,4 +1,5 @@
-import { IDishObject, IImageObject } from "../interfaces/ICommonContextProviderProps";
+import { IImageObject } from "../interfaces/IAppContextProviderProps"; 
+import { IDishObject } from "../interfaces/IDishContextProviderProps";
 
 export const ACTIONS = {
     SET_PATHNAME: "SET_PATHNAME",

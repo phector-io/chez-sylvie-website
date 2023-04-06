@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { useCommonContextProvider } from '../../providers/CommonContextProvider';
+import { useDishContextProvider } from '../../providers/DishContextProvider';
 
 import { NewtonsCradle } from '@uiball/loaders';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,7 +18,7 @@ const randomCategories = [
 ];
 
 const RandomDish: FC = (): JSX.Element => {
-    const { isRandomRunning, newRandomDish, launchRandomDish } = useCommonContextProvider();
+    const { isRandomRunning, newRandomDish, launchRandomDish } = useDishContextProvider();
     const [choices, setChoices] = useState<string[]>([]);
 
     const _handleClick = (choice: string) => {

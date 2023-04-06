@@ -7,6 +7,9 @@
     --color-red: #e20f2f;
     --color-red-dark: #9c0c0c;
     --color-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+
+    --font-josefin: "Josefin Sans", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
 }
 
 * {
@@ -40,7 +43,7 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-poppins);
     overflow-x: hidden;
     width: 100%;
 }

@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from 'react';
 
-import { useCommonContextProvider } from '../../providers/CommonContextProvider';
+import { useAppContextProvider } from '../../providers/AppContextProvider';
 
 import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
 
@@ -23,6 +23,7 @@ import menuParallaxBg from '/assets/bg-pizza.jpg';
 
 import { SettingsHelper } from '../../helpers/SettingsHelper';
 import styles from './style.module.css';
+import { useDishContextProvider } from '../../providers/DishContextProvider';
 
 const choiceGroup = [
     { name: SettingsHelper.getSetting("all_dishes_title"), icon: faConciergeBell},
@@ -41,7 +42,8 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ type }: Props): JSX.Element => {
-    const { updateSelectedDishType, scrollToTarget } = useCommonContextProvider();
+    const { updateSelectedDishType } = useDishContextProvider()
+    const { scrollToTarget } = useAppContextProvider();
     const paralaxRef = useRef<HTMLDivElement>(null);
     const history = useNavigate();
 
@@ -76,7 +78,7 @@ const Header: FC<Props> = ({ type }: Props): JSX.Element => {
                         <p className="description">
                             {SettingsHelper.getSetting("company_description")}
                         </p>
-                        <button onClick={() => history("/plats")}>
+                        <button onClick={() => history(SettingsHelper.getSetting("route_path_menu"))}>
                             {SettingsHelper.getSetting("menu_button_text")}
                         </button>
                     </>

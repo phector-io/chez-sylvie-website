@@ -8,16 +8,17 @@ import Contact from "../components/Contact/Contact";
 import NotFound from "../components/NotFound/NotFound";
 import Quiz from "../components/Quiz/Quiz";
 import LegalMentions from "../components/LegalMentions/LegalMentions";
+import { SettingsHelper } from "../helpers/SettingsHelper";
 
 const RoutesComponent: FC = (): JSX.Element => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/plats" element={<DishList />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/mentions-légales" element={<LegalMentions />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path={SettingsHelper.getSetting("route_path_home")} element={<Home />} />
+            <Route path={SettingsHelper.getSetting("route_path_menu")} element={<DishList />} />
+            <Route path={SettingsHelper.getSetting("route_path_contact")} element={<Contact />} />
+            <Route path={SettingsHelper.getSetting("route_path_quiz")} element={<Quiz />} />
+            <Route path={SettingsHelper.getSetting("route_path_mentions")} element={<LegalMentions />} />
+            <Route path={SettingsHelper.getSetting("route_path_404")} element={<NotFound />} />
         </Routes>
     );
 };
