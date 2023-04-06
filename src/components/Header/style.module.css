@@ -79,7 +79,7 @@
 
 .header_overlay_dishes button {
     background: rgba(0, 0, 0, 0.822);
-    color: var(--color-white);
+    color: #cecece;
     border: none;
     width: 150px;
     height: 150px;
