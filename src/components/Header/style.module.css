@@ -51,8 +51,9 @@
     z-index: 1;
 }
 
-.header_overlay_home button:hover {
-    transform: scale(1.1);
+.header_overlay_home button:active {
+    transform: scale(0.9);
+    background-color: var(--color-red-dark);
 }
 
 .cnv {
@@ -85,10 +86,10 @@
     padding: 10px;
     margin: 5px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
-.header_overlay_dishes button:hover {
+.header_overlay_dishes button:active {
     transform: scale(0.9);
     color: var(--color-red);
 }
@@ -164,16 +165,6 @@
     
     .header_overlay_home button {
         font-size: 1rem;
-    }
-
-    .header_overlay_dishes button:hover {
-        transform: initial;
-        color: var(--color-white);
-    }
-
-    .header_overlay_dishes button:active {
-        transform: scale(0.9);
-        color: var(--color-red);
     }
 }
 

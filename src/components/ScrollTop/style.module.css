@@ -13,6 +13,11 @@
     display: none;
 }
 
+.top__button:active {
+    transform: scale(0.9);
+    background-color: var(--color-red-dark);
+}
+
 .top__button svg {
     width: 25px;
     height: 25px;

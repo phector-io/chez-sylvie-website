@@ -29,7 +29,7 @@ a {
     transition: 0.1s ease-in-out;
 }
 
-a:hover {
+a:active {
     color: var(--color-red);
     letter-spacing: 1px;
 }
