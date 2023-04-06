@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPizzaSlice, faPhone, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
-import CarouselComponent from "../Carousel/Carousel";
+import Carousel from "../Carousel/Carousel";
 
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import styles from "./style.module.css";
@@ -18,7 +18,7 @@ const navLinkList = [
     { name: "quiz", icon: faQuestionCircle },
 ];
 
-const NavBarComponent: FC = (): JSX.Element => {
+const NavBar: FC = (): JSX.Element => {
     const { isNavBarOpen, getPathname, toggleNavBar } = useCommonContextProvider();
     const { pathname } = useLocation();
 
@@ -47,7 +47,7 @@ const NavBarComponent: FC = (): JSX.Element => {
                             </li>
                         ))}
                     </ul>
-                    <CarouselComponent />
+                    <Carousel />
                 </nav>
                 <label className={styles.navbar__hamburger}>
                     {/* TEST readOnly ??*/}
@@ -70,4 +70,4 @@ const NavBarComponent: FC = (): JSX.Element => {
     );
 };
 
-export default NavBarComponent;
+export default NavBar;

@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import styles from "./style.module.css";
 
-const QuizComponent: FC = (): JSX.Element => {
+const Quiz: FC = (): JSX.Element => {
 
     return (
        <div>Quiz</div>
     );
 };
 
-export default QuizComponent;
+export default Quiz;

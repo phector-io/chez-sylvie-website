@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import styles from "./style.module.css";
 
-const LegalMentionsComponent: FC = (): JSX.Element => {
+const LegalMentions: FC = (): JSX.Element => {
     return (
         <div className={styles.mentions}>
             <div className={styles.mentions__container}>
@@ -103,4 +103,4 @@ const LegalMentionsComponent: FC = (): JSX.Element => {
         </div>
     );
 };
-export default LegalMentionsComponent;
+export default LegalMentions;

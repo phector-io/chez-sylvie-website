@@ -31,6 +31,9 @@ const GENERAL_SETTINGS: ISettings = {
     see_my_order: "Ma commande",
     random_form_info: "Selectionnez une ou plusieurs catégories*",
     random_dishes_button_text: "C'est parti !",
+    dish_order_title: "Quantité :",
+    dish_order_plus: "+",
+    dish_order_minus: "-",
 };
 
 class SettingsHelper {

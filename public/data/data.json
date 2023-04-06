@@ -259,7 +259,7 @@
         {
             "type": "pâtes",
             "name": "Alsacienne",
-            "descr": "Crème, lardons, munster,fromage",
+            "descr": "Crème, lardons, munster, fromage",
             "price": "9.00"
         },
         {
@@ -297,6 +297,18 @@
             "name": "Thon",
             "descr": "Tomate, thon, fromage",
             "price": "9.00"
+        },
+        {
+            "type": "enfants",
+            "name": "Chat",
+            "descr": "Reine ou flamm",
+            "price": "6.00"
+        },
+        {
+            "type": "enfants",
+            "name": "Menu Chat",
+            "descr": "Reine ou flamm et une boisson de 33cl",
+            "price": "7.50"
         },
         {
             "type": "desserts",
@@ -399,18 +411,6 @@
             "name": "Lambrusco",
             "descr": "Rouge, rosé",
             "price": "9.00"
-        },
-        {
-            "type": "enfants",
-            "name": "Chat",
-            "descr": "Reine ou flamm",
-            "price": "6.00"
-        },
-        {
-            "type": "enfants",
-            "name": "Menu Chat",
-            "descr": "Reine ou flamm et une boisson de 33cl",
-            "price": "7.50"
         }
     ],
     "quiz": []

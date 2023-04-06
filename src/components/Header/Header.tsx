@@ -40,7 +40,7 @@ type Props = {
     type: HEADER_TYPE;
 };
 
-const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
+const Header: FC<Props> = ({ type }: Props): JSX.Element => {
     const { updateSelectedDishType, scrollToTarget } = useCommonContextProvider();
     const paralaxRef = useRef<HTMLDivElement>(null);
     const history = useNavigate();
@@ -101,5 +101,5 @@ const HeaderComponent: FC<Props> = ({ type }: Props): JSX.Element => {
     );
 };
 
-export default HeaderComponent;
+export default Header;
 //TODO: Add canvas snow effect

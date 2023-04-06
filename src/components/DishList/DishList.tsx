@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 
 import { useCommonContextProvider } from "../../providers/CommonContextProvider";
 
-import HeaderComponent from "../Header/Header";
+import Header from "../Header/Header";
 
 import { HEADER_TYPE } from "../../interfaces/Enum";
 
@@ -10,10 +10,11 @@ import { useLocation } from "react-router-dom";
 
 import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
-import RandomDishComponent from "../RandomDish/RandomDish";
-import ScrollTopComponent from "../ScrollTop/ScrollTop";
+import RandomDish from "../RandomDish/RandomDish";
+import ScrollTop from "../ScrollTop/ScrollTop";
+import DishItem from "../DishItem/DishItem";
 
-const DishesComponent: FC = (): JSX.Element => {
+const DishList: FC = (): JSX.Element => {
     const { dishType, dishList, showRandomDish, getPathname } = useCommonContextProvider();
     const { pathname } = useLocation();
 
@@ -23,7 +24,7 @@ const DishesComponent: FC = (): JSX.Element => {
 
     return (
         <div id="dishes" className={styles.dishes}>
-            <HeaderComponent type={HEADER_TYPE.DISHES} />
+            <Header type={HEADER_TYPE.DISHES} />
             <div className={styles.dishes__container}>
                 <h1>{dishType}</h1>
                 {showRandomDish && (
@@ -33,26 +34,18 @@ const DishesComponent: FC = (): JSX.Element => {
                     <div className={styles.dishes__content}>
                         <ul className={styles.dishes__list}>
                             {dishList.map((dish, idx) => (
-                                <div
-                                    key={idx}
-                                    className={styles.dishes__item}
-                                    data-aos="fade-up"
-                                >
-                                    <h2>{dish.name}</h2>
-                                    <p>{dish.descr}.</p>
-                                    <p>{dish.price}€</p>
-                                </div>
+                                <DishItem key={idx} item={dish} />
                             ))}
                         </ul>
-                        <ScrollTopComponent />
+                        <ScrollTop />
                     </div>
                 ) : (
-                    <RandomDishComponent />
+                    <RandomDish />
                 )}
             </div>
         </div>
     );
 };
-export default DishesComponent;
+export default DishList;
 
 //TODO: Add ma commande

@@ -1,0 +1,25 @@
+.dishes {
+    background: var(--color-gradient);
+}
+
+.dishes__container {
+    margin: 30px auto 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+}
+
+.dishes__container h1 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 2.5em;
+    color: var(--color-white);
+}
+
+.dishes__list {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    place-items: center;
+}

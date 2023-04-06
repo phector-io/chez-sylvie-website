@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import styles from './style.module.css';
 
-const MyOrderComponent: FC = (): JSX.Element => {
+const MyOrder: FC = (): JSX.Element => {
 
     return (
        <div>
@@ -11,4 +11,4 @@ const MyOrderComponent: FC = (): JSX.Element => {
     );
 };
 
-export default MyOrderComponent;
+export default MyOrder;

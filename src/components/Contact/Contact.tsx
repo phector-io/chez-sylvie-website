@@ -29,7 +29,7 @@ const contacts = [
     },
 ];
 
-const ContactComponent: FC = (): JSX.Element => {
+const Contact: FC = (): JSX.Element => {
     return (
         <div className="infos" role="contentinfo" id="contact">
             <div className="infos-content">
@@ -102,4 +102,4 @@ const ContactComponent: FC = (): JSX.Element => {
     );
 };
 
-export default ContactComponent;
+export default Contact;

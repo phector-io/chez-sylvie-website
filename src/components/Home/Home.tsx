@@ -2,17 +2,17 @@ import { FC } from "react";
 
 import { HEADER_TYPE } from "../../interfaces/Enum";
 
-import HeaderComponent from "../Header/Header";
-import FooterComponent from "../Footer/Footer";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
 import styles from "./style.module.css";
 
-const HomeComponent: FC = (): JSX.Element => {
+const Home: FC = (): JSX.Element => {
     return (
         <div className={styles.home}>
-            <HeaderComponent type={HEADER_TYPE.HOME} />
+            <Header type={HEADER_TYPE.HOME} />
             <main className={styles.home__content} role="main">
                 <section role="article" className={styles.home__article}>
                     <h1>{SettingsHelper.getSetting("company_descr_title")}</h1>
@@ -20,7 +20,7 @@ const HomeComponent: FC = (): JSX.Element => {
                         className={styles.home__article__text}
                         dangerouslySetInnerHTML={{__html: SettingsHelper.getSetting("company_descr_first_text")}} 
                     />
-                    <div className="aos" data-aos="zoom-in">
+                    <div data-aos="zoom-in">
                         <img src={img} alt={SettingsHelper.getSetting("company_image_descr")} />
                     </div>
                     <div
@@ -29,9 +29,9 @@ const HomeComponent: FC = (): JSX.Element => {
                     />
                 </section>
             </main>
-            <FooterComponent />
+            <Footer />
         </div>
     );
 };
 
-export default HomeComponent;
+export default Home;

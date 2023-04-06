@@ -17,7 +17,7 @@ const randomCategories = [
     SettingsHelper.getSetting("drink_dishes_title"),
 ];
 
-const RandomDishComponent: FC = (): JSX.Element => {
+const RandomDish: FC = (): JSX.Element => {
     const { isRandomRunning, newRandomDish, launchRandomDish } = useCommonContextProvider();
     const [choices, setChoices] = useState<string[]>([]);
 
@@ -87,4 +87,4 @@ const RandomDishComponent: FC = (): JSX.Element => {
     );
 };
 
-export default RandomDishComponent;
+export default RandomDish;

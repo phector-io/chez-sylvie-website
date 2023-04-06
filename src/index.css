@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-red: #e20f2f;
+    --color-red-dark: #9c0c0c;
+    --color-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,12 +22,12 @@ li {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: var(--color-black);
     transition: 0.1s ease-in-out;
 }
 
 a:hover {
-    color: #e20f2f;
+    color: var(--color-red);
     letter-spacing: 1px;
 }
 

@@ -1,6 +1,6 @@
 .random__container {
     height: 90vh;
-    color: #fff;
+    color: var(--color-white);
 }
 
 .random {
@@ -91,11 +91,11 @@
 }
 
 .check:hover svg {
-    stroke: #e20f2f;
+    stroke: var(--color-red);
 }
 
 .checkbox:checked + .check svg {
-    stroke: #e20f2f;
+    stroke: var(--color-red);
 }
 
 .checkbox:checked + .check svg path {
@@ -112,7 +112,7 @@
 .random__form__info {
     width: 50%;
     font-size: .8rem;
-    color: #fff;
+    color: var(--color-white);
 }
 
 .random__button {
@@ -123,8 +123,8 @@
 }
 
 .random__button button {
-    background-color: #e20f2f;
-    color: #fff;
+    background-color: var(--color-red);
+    color: var(--color-white);
     font-size: 1.2em;
     padding: 10px 20px;
     border: none;
@@ -154,18 +154,18 @@
 .random__dish h2 {
     font-size: 2em;
     margin-bottom: 15px;
-    color: #e20f2f;
+    color: var(--color-red);
 }
 
 .random__dish p:nth-of-type(1) {
-    color: #000;
+    color: var(--color-black);
     font-size: 1.1em;
     margin: 15px 0 30px;
 }
 
 .random__dish p:nth-of-type(2) {
     font-size: 1.5em;
-    color: #e20f2f;
+    color: var(--color-red);
     position: absolute;
     bottom: 10px;
     right: 20px;

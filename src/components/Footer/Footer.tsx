@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import styles from './style.module.css';
 
-const FooterComponent: FC = (): JSX.Element => {
+const Footer: FC = (): JSX.Element => {
 
     const handleClick = () => {
         window.open('/mentions-légales', '_blank');
@@ -33,6 +33,6 @@ const FooterComponent: FC = (): JSX.Element => {
     );
 };
 
-export default FooterComponent;
+export default Footer;
 
 

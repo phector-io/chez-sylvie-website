@@ -24,7 +24,7 @@
 }
 
 .home__article__text strong {
-    color: #e20f2f;
+    color: var(--color-red);
 }
 
 @media screen and (max-width: 880px) {

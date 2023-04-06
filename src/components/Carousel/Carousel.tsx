@@ -4,7 +4,7 @@ import { useCommonContextProvider } from "../../providers/CommonContextProvider"
 
 import styles from "./style.module.css";
 
-const CarouselComponent: FC= (): JSX.Element => {
+const Carousel: FC= (): JSX.Element => {
     const { isNavBarOpen, carouselImages, selectedImage, updateSelectedImage } = useCommonContextProvider();
 
     return (
@@ -37,4 +37,4 @@ const CarouselComponent: FC= (): JSX.Element => {
     );
 };
 
-export default CarouselComponent;
+export default Carousel;

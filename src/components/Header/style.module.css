@@ -10,7 +10,7 @@
 }
 
 .header_overlay {
-    color: #fff;
+    color: var(--color-white);
 }
 
 /* Home Header styles */
@@ -40,10 +40,10 @@
 .header_overlay_home button {
     margin-top: 1rem;
     padding: 1rem 1.8rem;
-    background-color: #e20f2f;
+    background-color: var(--color-red);
     border: none;
     border-radius: 25px;
-    color: #fff;
+    color: var(--color-white);
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -52,7 +52,7 @@
 }
 
 .header_overlay_home button:hover {
-    color: #fff;
+    color: var;
     letter-spacing: 0;
     transform: scale(1.1);
 }
@@ -75,7 +75,7 @@
 
 .header_overlay_dishes button {
     background: rgba(0, 0, 0, 0.822);
-    color: #fff;
+    color: var(--color-white);
     border: none;
     width: 150px;
     height: 150px;
@@ -87,11 +87,10 @@
 
 .header_overlay_dishes button:hover {
     transform: scale(0.9);
-    color: #e20f2f;
+    color: var(--color-red);
 }
 
 .header_overlay_dishes ul {
-    /* border: 1px solid #f00; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -102,7 +101,7 @@
 
 .header_overlay_dishes svg {
     font-size: 45px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 @media screen and (min-width: 1800px) {
@@ -130,7 +129,7 @@
 
     .header_overlay_dishes svg {
         font-size: 50px;
-        margin-bottom: 35px;
+        /* margin-bottom: 35px; TODO*/
     }
 }
 
@@ -171,7 +170,6 @@
     
     .header_overlay_dishes svg {
         font-size: 35px;
-        margin-bottom: 15px;
     }
 }
 

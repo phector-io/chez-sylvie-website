@@ -6,7 +6,7 @@ import { SCROLL_TARGET } from '../../interfaces/Enum';
 
 import styles from './style.module.css';
 
-const ScrollTopComponent: FC = (): JSX.Element => {
+const ScrollTop: FC = (): JSX.Element => {
     const { scrollToTarget } = useCommonContextProvider();
 
     return (
@@ -16,4 +16,4 @@ const ScrollTopComponent: FC = (): JSX.Element => {
     );
 };
 
-export default ScrollTopComponent;
+export default ScrollTop;

@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: var(--color-white);
 }
 
 .navbar__logo {
@@ -31,13 +31,13 @@
 }
 
 .show__navbar .navbar__logo {
-    color: #000;
+    color: var(--color-black);
 }
 
 .navbar__logo span {
     font-size: 1.8rem;
     margin-left: 5px;
-    color: #e20f2f;
+    color: var(--color-red);
 }
 
 .navbar__hamburger {
@@ -54,9 +54,9 @@
     transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/*Hamburger*/
 .line {
     fill: none;
-    stroke: white;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 3;
@@ -84,7 +84,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: #fff;
+    background: var(--color-white);
     transition: all 0.5s ease-in-out;
     visibility: hidden;
     box-shadow: 5px 5px 15px rgb(38, 57, 77);
@@ -123,7 +123,7 @@
 }
 
 .navbar__nav a:hover {
-    color: #e20f2f;
+    color: var(--color-red);
     letter-spacing: 1px;
 }
 
