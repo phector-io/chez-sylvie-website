@@ -1,0 +1,52 @@
+.order__form__container {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 2.5rem;
+}
+
+.order__form__container button {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: grid;
+    place-items: center;
+}
+
+.order__form__quantity {
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order__form__container button:active {
+    background: var(--color-red-dark);
+}
+
+.order__form__quantity button:first-of-type {
+    border-radius: 5px 0 0 5px;
+}
+
+.order__form__quantity button:last-of-type {
+    border-radius: 0 5px 5px 0;
+}
+
+.order__form__container button svg {
+    width: .8rem;
+}
+
+.order__form__container p {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.order__form__delete {
+    border-radius: 5px;
+}

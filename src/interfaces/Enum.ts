@@ -13,3 +13,8 @@ export enum SCROLL_TARGET {
     TOP,
     BOTTOM,
 };
+
+export enum QUANTITY_ACTION {
+    ADD,
+    REMOVE,
+};

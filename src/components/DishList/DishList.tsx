@@ -14,10 +14,11 @@ import { useLocation } from "react-router-dom";
 
 import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
+import MyOrder from "../MyOrder/MyOrder";
 
 const DishList: FC = (): JSX.Element => {
     const { getPathname } = useAppContextProvider();
-    const { dishType, dishList, showRandomDish } = useDishContextProvider();
+    const { dishType, dishList, showRandomDish, showMyOrder } = useDishContextProvider();
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -28,11 +29,17 @@ const DishList: FC = (): JSX.Element => {
         <div id="dishes" className={styles.dishes}>
             <Header type={HEADER_TYPE.DISHES} />
             <div className={styles.dishes__container}>
-                <h1>{dishType.charAt(0).toUpperCase() + dishType.slice(1)}</h1>
+                <h1>
+                    {dishType.charAt(0).toUpperCase() + dishType.slice(1)}
+                </h1>
                 {showRandomDish && (
                     <p className={styles.random__form__info}>{SettingsHelper.getSetting("random_form_info")}</p>
                 )}
-                {!showRandomDish ? (
+                {showRandomDish ? (
+                    <RandomDish />
+                ) : showMyOrder ? (
+                    <MyOrder />
+                ) : (
                     <div className={styles.dishes__content}>
                         <ul className={styles.dishes__list}>
                             {dishList.map((dish, idx) => (
@@ -41,9 +48,8 @@ const DishList: FC = (): JSX.Element => {
                         </ul>
                         <ScrollTop />
                     </div>
-                ) : (
-                    <RandomDish />
                 )}
+
             </div>
         </div>
     );

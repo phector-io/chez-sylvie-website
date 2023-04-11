@@ -1,5 +1,5 @@
 import { IImageObject } from "../interfaces/IAppContextProviderProps"; 
-import { IDishObject } from "../interfaces/IDishContextProviderProps";
+import { IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
 
 export const ACTIONS = {
     SET_PATHNAME: "SET_PATHNAME",
@@ -13,6 +13,7 @@ export const ACTIONS = {
     SET_DISH_LIST: "SET_DISH_LIST",
     SET_ON_LAUNCH_RANDOM_DISH: "SET_ON_LAUNCH_RANDOM_DISH",
     SET_NEW_RANDOM_DISH: "SET_NEW_RANDOM_DISH",
+    SET_ORDER: "SET_ORDER",
 };
 
 export const CommonReducer = (
@@ -28,8 +29,10 @@ export const CommonReducer = (
         allDishes?: IDishObject[];
         dishList?: IDishObject[];
         showRandomDish?: boolean;
+        showMyOrder?: boolean;
         isRandomRunning?: boolean;
         newRandomDish?: IDishObject | null;
+        order?: IOrder[];
     }
 ) => {
     switch (action.type) {
@@ -48,13 +51,15 @@ export const CommonReducer = (
         case ACTIONS.SET_ALL_DISHES:
             return { ...state, allDishes: action.allDishes };
             case ACTIONS.SET_ON_CHANGE_DISH_TYPE:
-                return { ...state, dishList: action.dishList, showRandomDish: action.showRandomDish };
+                return { ...state, dishList: action.dishList, showRandomDish: action.showRandomDish, showMyOrder: action.showMyOrder };
         case ACTIONS.SET_DISH_LIST:
             return { ...state, dishList: action.dishList };
         case ACTIONS.SET_ON_LAUNCH_RANDOM_DISH:
             return { ...state, isRandomRunning: action.isRandomRunning, newRandomDish: action.newRandomDish };
         case ACTIONS.SET_NEW_RANDOM_DISH:
             return { ...state, newRandomDish: action.newRandomDish };
+        case ACTIONS.SET_ORDER:
+            return { ...state, order: action.order };
 
         default:
             return state;

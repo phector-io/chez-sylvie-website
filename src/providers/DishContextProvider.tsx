@@ -2,7 +2,7 @@ import { ReactNode, createContext, useContext, useEffect, useReducer } from "rea
 
 import { useAppContextProvider } from "./AppContextProvider";
 
-import { IDishContextProviderProps, IDishObject } from "../interfaces/IDishContextProviderProps";
+import { IDishContextProviderProps, IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
 import { DATA_TYPES } from "../interfaces/Enum";
 
 import { CommonReducer } from "../reducers/CommonReducer";
@@ -24,6 +24,8 @@ const defaultState = {
     showRandomDish: false,
     isRandomRunning: false,
     newRandomDish: null,
+    showMyOrder: false,
+    order: [],
 };
 
 const DishContext = createContext<IDishContextProviderProps>({
@@ -32,8 +34,12 @@ const DishContext = createContext<IDishContextProviderProps>({
     showRandomDish: false,
     isRandomRunning: false,
     newRandomDish: null,
+    showMyOrder: false,
+    order: [],
     launchRandomDish: () => {},
     updateSelectedDishType: () => {},
+    updateOrder: () => {},
+    deleteDishFromOrder: () => {},
 });
 
 export const useDishContextProvider = () => useContext(DishContext);
@@ -68,12 +74,21 @@ export const DishContextProvider = ({ children }: Props) => {
                 type: "SET_ON_CHANGE_DISH_TYPE",
                 dishList: [],
                 showRandomDish: true,
+                showMyOrder: false,
+            })
+        } else if (type === SettingsHelper.getSetting("see_my_order_title")) {
+            dispatch({
+                type: "SET_ON_CHANGE_DISH_TYPE",
+                dishList: [],
+                showRandomDish: false,
+                showMyOrder: true,
             })
         } else {
             dispatch({
                 type: "SET_ON_CHANGE_DISH_TYPE",
                 dishList: filterDishes(state.allDishes, type),
                 showRandomDish: false,
+                showMyOrder: false,
             })
         }
     };
@@ -95,6 +110,53 @@ export const DishContextProvider = ({ children }: Props) => {
         }, 2000);
     };
 
+    // Update order
+    const updateOrder = (order: IOrder) => {
+        const { dish, quantity } = order;
+        const currentOrder = state.order;
+        const orderArray = currentOrder ? [...currentOrder] : [];
+    
+        const index = orderArray.findIndex((item) => item.dish.name === dish.name);
+
+        if (index !== -1) {
+            orderArray[index].quantity = quantity;
+            if (quantity === 0) {
+                orderArray.splice(index, 1);
+            }
+        } else {
+            orderArray.push(order);
+        }
+    
+        localStorage.setItem(SettingsHelper.getSetting("order_cache_key"), JSON.stringify(orderArray));
+        dispatch({
+            type: "SET_ORDER",
+            order: orderArray,
+        });
+    };
+    
+    // Delete dish from order
+    const deleteDishFromOrder = (dishName: string) => {
+        const currentOrder = state.order;
+        const newOrder = currentOrder.filter((item: IOrder) => item.dish.name !== dishName);
+    
+        localStorage.setItem(SettingsHelper.getSetting("order_cache_key"), JSON.stringify(newOrder));
+        dispatch({
+            type: "SET_ORDER",
+            order: newOrder,
+        });
+    };
+
+    // Retrieve order from cache on first render
+    useEffect(() => {
+        const cachedOrder = localStorage.getItem(SettingsHelper.getSetting("order_cache_key"));
+        if (cachedOrder) {
+            dispatch({
+                type: "SET_ORDER",
+                order: JSON.parse(cachedOrder),
+            });
+        }
+    }, []);
+    
     // Get dishes where location is "/plats"
     useEffect(() => {
         if (pathname === SettingsHelper.getSetting("route_path_menu")) {
@@ -132,8 +194,12 @@ export const DishContextProvider = ({ children }: Props) => {
         showRandomDish: state.showRandomDish,
         isRandomRunning: state.isRandomRunning,
         newRandomDish: state.newRandomDish,
+        showMyOrder: state.showMyOrder,
+        order: state.order,
         launchRandomDish,
         updateSelectedDishType,
+        updateOrder,
+        deleteDishFromOrder,
     };
 
     return (

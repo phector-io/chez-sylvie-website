@@ -4,6 +4,9 @@
 :root {
     --color-white: #fff;
     --color-black: #000;
+    --color-gray-light: #d3d3d3;
+    --color-gray: #cacaca;
+    --color-gray-dark: #686868;
     --color-red: #e20f2f;
     --color-red-dark: #9c0c0c;
     --color-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
