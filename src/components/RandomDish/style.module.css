@@ -1,13 +1,15 @@
 .random__container {
     height: 90vh;
-    color: var(--color-white);
 }
 
 .random {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 60px 20px 1fr;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    /* TODO */
 }
 
 .random__checkboxes {
@@ -26,6 +28,7 @@
 }
 
 .random__checkbox_container span {
+    color: var(--color-white);
     font-size: 1.2em;
     margin-left: 5px;
 }
@@ -119,7 +122,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
 }
 
 .random__button button {

@@ -8,6 +8,7 @@ import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
+import DishItem from '../DishItem/DishItem';
 
 const randomCategories = [
     SettingsHelper.getSetting("pizza_dishes_title"),
@@ -55,21 +56,17 @@ const RandomDish: FC = (): JSX.Element => {
                     ))}
                 </div>
                 <div className={styles.random__button}>
-                <button
-                    onClick={() => launchRandomDish(choices)}
-                    style={{ opacity: isRandomRunning || !choices.length ? 0.5 : 1 }}
-                    disabled={isRandomRunning || !choices.length}
-                >
-                    {SettingsHelper.getSetting("random_dishes_button_text")}
-                </button>
+                    <button
+                        onClick={() => launchRandomDish(choices)}
+                        style={{ opacity: isRandomRunning || !choices.length ? 0.5 : 1 }}
+                        disabled={isRandomRunning || !choices.length}
+                    >
+                        {SettingsHelper.getSetting("random_dishes_button_text")}
+                    </button>
                 </div>
-                <div className={`${styles.dishes__item} ${styles.random__dish} ${!newRandomDish ? styles.random__no__dish : ""}`}>
+                <div className={`${!newRandomDish ? styles.random__no__dish : ""}`}>
                     {newRandomDish ? (
-                        <>
-                            <h2>{newRandomDish.name}</h2>
-                            <p>{newRandomDish.descr}.</p>
-                            <p>{newRandomDish.price}€</p>
-                        </>
+                        <DishItem item={newRandomDish} />
                     ) : (
                         isRandomRunning ? (
                             <NewtonsCradle 

@@ -1,7 +1,7 @@
 .dish__container {
     background: var(--color-white);
     width: 18rem;
-    height: 23rem;
+    height: 22rem;
     padding: 10px 2rem 20px;
     border-radius: 10px;
     border-bottom: 4px solid var(--color-black);
@@ -54,7 +54,7 @@
 
 .dish__descr__container {
     margin-top: 1.5rem;
-    font-size: 1.1rem;
+    font-size: .95rem;
 }
 
 .dish__order__container {
