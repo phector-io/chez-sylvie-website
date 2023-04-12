@@ -9,6 +9,8 @@ import { retrieveData } from "../helpers/QueryHelper";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { v4 as uuidv4 } from "uuid";
+import { SettingsHelper } from "../helpers/SettingsHelper";
 
 type Props = {
     children: ReactNode;
@@ -29,10 +31,12 @@ const defaultState = {
 };
 
 const AppContext = createContext<IAppContextProviderProps>({
+    infoPopup: false,
     pathname: "",
     isNavBarOpen: false,
     carouselImages: [],
     selectedImage: null,
+    closePopup: () => {},
     getPathname: () => {},
     updateSelectedImage: () => {},
     toggleNavBar: () => {},
@@ -45,6 +49,37 @@ export const useAppContextProvider = () => useContext(AppContext);
 export const AppContextProvider = ({ children }: Props) => {
     const [state, dispatch] = useReducer(CommonReducer, defaultState);
 
+    // Init AOS
+    const _initAOS = () => {
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out",
+            delay: 50,
+        });
+    };
+
+    // Handle popup controls
+    const _handleInfoPopup = () => {
+        const visited = localStorage.getItem(SettingsHelper.getSetting("already_visited_storage_key"));
+
+        if (visited) return;
+
+        dispatch({
+            type: "SET_INFO_POPUP",
+            infoPopup: true,
+        });
+    };
+
+    // Close popup
+    const closeInfoPopup = () => {
+        localStorage.setItem(SettingsHelper.getSetting("already_visited_storage_key"), uuidv4());
+        dispatch({
+            type: "SET_INFO_POPUP",
+            infoPopup: false,
+        });
+    };
+
+    // Get pathname
     const getPathname = (pathname: string) => {
         dispatch({
             type: "SET_PATHNAME",
@@ -93,13 +128,10 @@ export const AppContextProvider = ({ children }: Props) => {
         return window.innerHeight;
     };
 
-    // First render - Init AOS
+    // First render - Init AOS & create Cache for popups
     useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            easing: "ease-in-out",
-            delay: 50,
-        });
+        _initAOS();
+        _handleInfoPopup();
     }, []);
 
     // On pathname changed - Get pathname
@@ -126,10 +158,12 @@ export const AppContextProvider = ({ children }: Props) => {
     }, [state.carouselImages]);
 
     const propsValues = {
+        infoPopup: state.infoPopup,
         pathname: state.pathname,
         isNavBarOpen: state.isNavBarOpen,
         carouselImages: state.carouselImages,
         selectedImage: state.selectedImage,
+        closePopup: closeInfoPopup,
         getPathname,
         toggleNavBar,
         updateSelectedImage,

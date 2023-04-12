@@ -18,3 +18,18 @@ export enum QUANTITY_ACTION {
     ADD,
     REMOVE,
 };
+
+export enum ORDER_ACTION {
+    CLEAR,
+    ORDER
+};
+
+export enum POPUP_TYPE {
+    INFO,
+    ALERT,
+}
+
+export enum ALERT_ACTION {
+    CANCEL,
+    CONFIRM,
+}

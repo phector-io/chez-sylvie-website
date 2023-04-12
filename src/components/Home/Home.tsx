@@ -1,6 +1,8 @@
 import { FC } from "react";
 
-import { HEADER_TYPE } from "../../interfaces/Enum";
+import { useAppContextProvider } from "../../providers/AppContextProvider";
+
+import { HEADER_TYPE, POPUP_TYPE } from "../../interfaces/Enum";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -8,8 +10,11 @@ import Footer from "../Footer/Footer";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
 import styles from "./style.module.css";
+import Popup from "../Popup/Popup";
 
 const Home: FC = (): JSX.Element => {
+    const { infoPopup } = useAppContextProvider();
+
     return (
         <div className={styles.home}>
             <Header type={HEADER_TYPE.HOME} />
@@ -30,6 +35,7 @@ const Home: FC = (): JSX.Element => {
                 </section>
             </main>
             <Footer />
+            {infoPopup && <Popup type={POPUP_TYPE.INFO} /> }
         </div>
     );
 };

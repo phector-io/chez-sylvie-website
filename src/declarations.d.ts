@@ -10,3 +10,8 @@ declare module "aos" {
     }
     export function init(options?: AosOptions): void;
 }
+
+// declare uuid
+declare module "uuid" {
+    export function v4(): string;
+}

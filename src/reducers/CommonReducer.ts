@@ -2,6 +2,7 @@ import { IImageObject } from "../interfaces/IAppContextProviderProps";
 import { IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
 
 export const ACTIONS = {
+    SET_INFO_POPUP: "SET_INFO_POPUP",
     SET_PATHNAME: "SET_PATHNAME",
     SET_TOGGLE_NAVBAR: "SET_TOGGLE_NAVBAR",
     SET_CAROUSEL_IMAGES: "SET_CAROUSEL_IMAGES",
@@ -14,12 +15,14 @@ export const ACTIONS = {
     SET_ON_LAUNCH_RANDOM_DISH: "SET_ON_LAUNCH_RANDOM_DISH",
     SET_NEW_RANDOM_DISH: "SET_NEW_RANDOM_DISH",
     SET_ORDER: "SET_ORDER",
+    SET_ALERT_POPUP: "SET_ALERT_POPUP",
 };
 
 export const CommonReducer = (
     state: any,
     action: {
         type: string;
+        infoPopup?: boolean;
         pathname?: string;
         isNavBarOpen?: boolean;
         carouselImages?: IImageObject[];
@@ -33,9 +36,12 @@ export const CommonReducer = (
         isRandomRunning?: boolean;
         newRandomDish?: IDishObject | null;
         order?: IOrder[];
+        alertPopup?: boolean;
     }
 ) => {
     switch (action.type) {
+        case ACTIONS.SET_INFO_POPUP:
+            return { ...state, infoPopup: action.infoPopup };
         case ACTIONS.SET_PATHNAME:
             return { ...state, pathname: action.pathname };
         case ACTIONS.SET_TOGGLE_NAVBAR:
@@ -60,6 +66,8 @@ export const CommonReducer = (
             return { ...state, newRandomDish: action.newRandomDish };
         case ACTIONS.SET_ORDER:
             return { ...state, order: action.order };
+        case ACTIONS.SET_ALERT_POPUP:
+            return { ...state, alertPopup: action.alertPopup };
 
         default:
             return state;

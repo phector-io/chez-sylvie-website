@@ -3,7 +3,7 @@ import { ReactNode, createContext, useContext, useEffect, useReducer } from "rea
 import { useAppContextProvider } from "./AppContextProvider";
 
 import { IDishContextProviderProps, IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
-import { DATA_TYPES } from "../interfaces/Enum";
+import { ALERT_ACTION, DATA_TYPES } from "../interfaces/Enum";
 
 import { CommonReducer } from "../reducers/CommonReducer";
 
@@ -36,11 +36,13 @@ const DishContext = createContext<IDishContextProviderProps>({
     newRandomDish: null,
     showMyOrder: false,
     order: [],
+    alertPopup: false,
     launchRandomDish: () => {},
     updateSelectedDishType: () => {},
     updateOrder: () => {},
     deleteDishFromOrder: () => {},
-    clearOrder: () => {},
+    openAlertPopup: () => {},
+    handleAlertAction: () => {},
 });
 
 export const useDishContextProvider = () => useContext(DishContext);
@@ -147,6 +149,24 @@ export const DishContextProvider = ({ children }: Props) => {
         });
     };
 
+    // Open alert popup on click delete order
+    const openAlertPopup = () => {
+        dispatch({
+            type: "SET_ALERT_POPUP",
+            alertPopup: true
+        });
+    };
+
+    const handleAlertAction = (action: ALERT_ACTION) => {
+        if (action === ALERT_ACTION.CONFIRM) {
+            clearOrder();
+        }
+        dispatch({
+            type: "SET_ALERT_POPUP",
+            alertPopup: false
+        });
+    };
+
     // Clear order
     const clearOrder = () => {
         localStorage.removeItem(SettingsHelper.getSetting("order_cache_key"));
@@ -206,11 +226,13 @@ export const DishContextProvider = ({ children }: Props) => {
         newRandomDish: state.newRandomDish,
         showMyOrder: state.showMyOrder,
         order: state.order,
+        alertPopup: state.alertPopup,
         launchRandomDish,
         updateSelectedDishType,
         updateOrder,
         deleteDishFromOrder,
-        clearOrder,
+        openAlertPopup,
+        handleAlertAction,
     };
 
     return (

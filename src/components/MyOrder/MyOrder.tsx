@@ -2,27 +2,24 @@ import { FC } from 'react';
 
 import { useDishContextProvider } from '../../providers/DishContextProvider';
 
+import { ORDER_ACTION, POPUP_TYPE } from '../../interfaces/Enum';
+
 import DishQuantity from '../DishQuantity/DishQuantity';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBasketShopping, faBeerMugEmpty, faPhone, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faPhone, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
-
-
-enum ORDER_ACTION {
-    CLEAR,
-    ORDER
-};
+import Popup from '../Popup/Popup';
 
 const MyOrder: FC = (): JSX.Element => {
-    const { order, deleteDishFromOrder, clearOrder } = useDishContextProvider();
+    const { order, alertPopup, deleteDishFromOrder, openAlertPopup } = useDishContextProvider();
 
     const _handleOrderControl = (action: ORDER_ACTION) => {
         switch (action) {
             case ORDER_ACTION.CLEAR:
-                clearOrder();
+                openAlertPopup();
                 break;
             case ORDER_ACTION.ORDER:
                 window.location.href = SettingsHelper.getSetting("contact_phone_link");
@@ -54,14 +51,18 @@ const MyOrder: FC = (): JSX.Element => {
                     </ul>
                     <div className={`${styles.order__controls__price} ${styles.content}`}>
                         <div className={styles.order__prices}>
+
+                            {/* TODO */}
                             <p>
-                                Sous-total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}€
+                                Sous-total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
+                                {SettingsHelper.getSetting("currency")}
                             </p>
                             <p>
-                                Frais de livraison: 0€
+                                Frais de livraison: 0{SettingsHelper.getSetting("currency")}
                             </p>
                             <h2>
-                                Total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}€
+                                Total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
+                                {SettingsHelper.getSetting("currency")}
                             </h2>
                         </div>
                         <div className={styles.order__controls}>
@@ -89,6 +90,7 @@ const MyOrder: FC = (): JSX.Element => {
                     </h2>
                 </div>
             )}
+            {alertPopup && <Popup type={POPUP_TYPE.ALERT} />}
         </div>
     );
 };
