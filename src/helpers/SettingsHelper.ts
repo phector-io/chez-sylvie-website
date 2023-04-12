@@ -40,6 +40,8 @@ const GENERAL_SETTINGS: ISettings = {
     random_dishes_button_text: "C'est parti !",
     dish_order_title: "Quantité :",
     dish_order_empty: "Aucun plat sélectionné",
+    dish_order_button_call: "Commander",
+    dish_order_button_clear: "Supprimer",
     contact_google_maps_link: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x4794373216776329:0xf78ac97312d7af5f?source=g.page.share",
     contact_google_maps_link_title: "Voir sur Google Maps",
     contact_google_maps_link_text: "17 Rue Mal Foch, 57430 Sarralbe",

@@ -37,6 +37,11 @@
     border-radius: 0 10px 10px 0;
 }
 
+.order__list__one__child {
+    height: 100px !important;
+    overflow-y: hidden;
+}
+
 .order__list__item {
     width: 100%;
     position: relative;
@@ -123,7 +128,7 @@
 
 .order__empty {
     width: 100%;
-    height: 100%;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;

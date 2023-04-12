@@ -40,6 +40,7 @@ const DishContext = createContext<IDishContextProviderProps>({
     updateSelectedDishType: () => {},
     updateOrder: () => {},
     deleteDishFromOrder: () => {},
+    clearOrder: () => {},
 });
 
 export const useDishContextProvider = () => useContext(DishContext);
@@ -146,6 +147,15 @@ export const DishContextProvider = ({ children }: Props) => {
         });
     };
 
+    // Clear order
+    const clearOrder = () => {
+        localStorage.removeItem(SettingsHelper.getSetting("order_cache_key"));
+        dispatch({
+            type: "SET_ORDER",
+            order: [],
+        });
+    };
+
     // Retrieve order from cache on first render
     useEffect(() => {
         const cachedOrder = localStorage.getItem(SettingsHelper.getSetting("order_cache_key"));
@@ -200,6 +210,7 @@ export const DishContextProvider = ({ children }: Props) => {
         updateSelectedDishType,
         updateOrder,
         deleteDishFromOrder,
+        clearOrder,
     };
 
     return (

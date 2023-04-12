@@ -10,14 +10,31 @@ import { faBasketShopping, faBeerMugEmpty, faPhone, faTrash, faXmark } from '@fo
 import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
 
+
+enum ORDER_ACTION {
+    CLEAR,
+    ORDER
+};
+
 const MyOrder: FC = (): JSX.Element => {
-    const { order, deleteDishFromOrder } = useDishContextProvider();
+    const { order, deleteDishFromOrder, clearOrder } = useDishContextProvider();
+
+    const _handleOrderControl = (action: ORDER_ACTION) => {
+        switch (action) {
+            case ORDER_ACTION.CLEAR:
+                clearOrder();
+                break;
+            case ORDER_ACTION.ORDER:
+                window.location.href = SettingsHelper.getSetting("contact_phone_link");
+                break;
+        }
+    };
 
     return (
         <div className={styles.order__container}>
             {order.length ? (
                 <div className={styles.order__details}>
-                    <ul className={`${styles.order__list} ${styles.content}`}>
+                    <ul className={`${styles.order__list} ${styles.content} ${order.length === 1 ? styles.order__list__one__child : ''}`}>
                         {order.map((item) => (
                             <li 
                                 key={item.dish.name} 
@@ -48,17 +65,17 @@ const MyOrder: FC = (): JSX.Element => {
                             </h2>
                         </div>
                         <div className={styles.order__controls}>
-                            <button>
+                            <button onClick={() => _handleOrderControl(ORDER_ACTION.ORDER)}>
                                 <FontAwesomeIcon icon={faPhone} />
                                 <span>
-                                    Commander
+                                    {SettingsHelper.getSetting("dish_order_button_call")}
                                 </span>
                             </button>
 
-                            <button>
+                            <button onClick={() => _handleOrderControl(ORDER_ACTION.CLEAR)}>
                                 <FontAwesomeIcon icon={faTrash} />
                                 <span>
-                                    Supprimer
+                                    {SettingsHelper.getSetting("dish_order_button_clear")}
                                 </span>
                             </button>
                         </div>

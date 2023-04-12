@@ -10,6 +10,7 @@ export interface IDishContextProviderProps {
     updateSelectedDishType: (type: string) => void;
     updateOrder: (order: IOrder) => void;
     deleteDishFromOrder: (dishName: string) => void;
+    clearOrder: () => void;
 }
 
 export interface IDishObject {
