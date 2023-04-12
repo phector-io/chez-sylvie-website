@@ -27,5 +27,12 @@
     .top__button {
         right: 5px;
         bottom: 5px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .top__button svg {
+        width: 20px;
+        height: 20px;
     }
 }
