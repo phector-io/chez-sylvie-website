@@ -1,5 +1,5 @@
 .order__container {
-    height: 90vh;
+    min-height: 90vh;
 }
 
 .order__details {
@@ -9,12 +9,19 @@
     margin: 1.5rem 0;
 }
 
-.order__list {
+.content {
     background-color: var(--color-white);
     border-radius: 10px;
+}
+
+.order__list {
     max-height: 80vh;
     overflow-y: auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .order__list::-webkit-scrollbar {
@@ -31,6 +38,7 @@
 }
 
 .order__list__item {
+    width: 100%;
     position: relative;
 }
 
@@ -66,8 +74,51 @@
     color: var(--color-gray-dark);
 }
 
-.order__total__price {
-    border: 1px solid #f00;
+.order__controls__price {
+    height: 30vh;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.order__prices {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+.order__controls {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.order__controls button {
+    width: calc(100% / 2 - 1rem);
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-red);
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order__controls button:active {
+    background-color: var(--color-red-dark);
+}
+
+.order__controls button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.order__controls button span {
+    margin-left: 7px;
 }
 
 .order__empty {
@@ -85,3 +136,31 @@
     height: 100px;
     margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 950px) {
+    .order__details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .order__list {
+        padding: 0 1rem 0 0;
+
+    }
+    .order__list__item {
+        font-size: .65rem;
+        padding: 0;
+    }
+
+    .order__list__item {
+        width: 100%;
+        position: relative;
+    }
+    
+    .order__item__content {
+        transform: scale(.9);
+    }
+}
+    

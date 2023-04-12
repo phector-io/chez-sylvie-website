@@ -45,7 +45,7 @@ const DishQuantity: FC<Props> = ({ item }: Props): JSX.Element => {
     }, [dishType, order, item]);
   
     return (
-        <div className={styles.order__form__container}>
+        <div className={`${styles.order__form__container} ${"quantity" in item ? styles.order__quantity : ""}`}>
             <div className={styles.order__form__quantity}>
                 <button onClick={() => _handleOrder(QUANTITY_ACTION.REMOVE)} disabled={(quantity <= 0)}>
                     <FontAwesomeIcon icon={faMinus} />

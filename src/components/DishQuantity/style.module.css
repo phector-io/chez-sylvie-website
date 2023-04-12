@@ -1,7 +1,6 @@
 .order__form__container {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     height: 2.5rem;
 }
 
@@ -47,6 +46,8 @@
     font-weight: 500;
 }
 
-.order__form__delete {
-    border-radius: 5px;
+@media screen and (max-width: 450px) {
+    .order__quantity {
+        transform: scale(0.8);
+    }
 }

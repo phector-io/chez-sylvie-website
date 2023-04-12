@@ -5,7 +5,7 @@ import { useDishContextProvider } from '../../providers/DishContextProvider';
 import DishQuantity from '../DishQuantity/DishQuantity';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBasketShopping, faBeerMugEmpty, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faBeerMugEmpty, faPhone, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
@@ -17,7 +17,7 @@ const MyOrder: FC = (): JSX.Element => {
         <div className={styles.order__container}>
             {order.length ? (
                 <div className={styles.order__details}>
-                    <ul className={styles.order__list}>
+                    <ul className={`${styles.order__list} ${styles.content}`}>
                         {order.map((item) => (
                             <li 
                                 key={item.dish.name} 
@@ -35,10 +35,33 @@ const MyOrder: FC = (): JSX.Element => {
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.order__total__price}>
-                        <h2>
-                            Total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}$
-                        </h2>
+                    <div className={`${styles.order__controls__price} ${styles.content}`}>
+                        <div className={styles.order__prices}>
+                            <p>
+                                Sous-total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}€
+                            </p>
+                            <p>
+                                Frais de livraison: 0€
+                            </p>
+                            <h2>
+                                Total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}€
+                            </h2>
+                        </div>
+                        <div className={styles.order__controls}>
+                            <button>
+                                <FontAwesomeIcon icon={faPhone} />
+                                <span>
+                                    Commander
+                                </span>
+                            </button>
+
+                            <button>
+                                <FontAwesomeIcon icon={faTrash} />
+                                <span>
+                                    Supprimer
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             ) : (
