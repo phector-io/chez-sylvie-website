@@ -22,3 +22,10 @@
     width: 25px;
     height: 25px;
 }
+
+@media screen and (max-width: 768px) {
+    .top__button {
+        right: 5px;
+        bottom: 5px;
+    }
+}
