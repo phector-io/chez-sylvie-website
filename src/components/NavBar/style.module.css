@@ -169,3 +169,16 @@
 
 }
 
+@media screen and (max-width: 850px) and (orientation: landscape) {
+    .navbar__nav ul {
+        font-size: 1.1em;
+        height: 200px;
+    }
+
+    .show__navbar .navbar__nav ul {
+        left: 5rem;
+    }
+}
+
+
+
