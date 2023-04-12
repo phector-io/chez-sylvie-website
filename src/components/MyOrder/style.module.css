@@ -16,7 +16,7 @@
 
 .order__list {
     max-height: 90vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
