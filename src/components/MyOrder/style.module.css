@@ -15,8 +15,8 @@
 }
 
 .order__list {
-    max-height: 80vh;
-    overflow-y: auto;
+    max-height: 90vh;
+    overflow-y: scroll;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
