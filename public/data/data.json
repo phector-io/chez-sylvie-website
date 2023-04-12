@@ -413,5 +413,86 @@
             "price": "9.00"
         }
     ],
-    "quiz": []
+    "quiz": [
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        },
+        {
+            "question": "Quel est le nom du chien de la famille Flamm ?",
+            "answers": [
+                "Bobby",
+                "Rex",
+                "Rexy",
+                "Rexy Flamm"
+            ],
+            "correct": 3
+        }
+    ]
 }
