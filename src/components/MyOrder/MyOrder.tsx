@@ -51,17 +51,17 @@ const MyOrder: FC = (): JSX.Element => {
                     </ul>
                     <div className={`${styles.order__controls__price} ${styles.content}`}>
                         <div className={styles.order__prices}>
-
-                            {/* TODO */}
                             <p>
-                                Sous-total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
+                                {SettingsHelper.getSetting("dish_order_subtotal_text")}{" "}
+                                {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
                                 {SettingsHelper.getSetting("currency")}
                             </p>
                             <p>
-                                Frais de livraison: 0{SettingsHelper.getSetting("currency")}
+                                {SettingsHelper.getSetting("dish_order_delivery_text")}
                             </p>
                             <h2>
-                                Total: {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
+                                {SettingsHelper.getSetting("dish_order_total_text")}{" "}
+                                {order.reduce((acc, item) => acc + (parseInt(item.dish.price) * item.quantity), 0)}
                                 {SettingsHelper.getSetting("currency")}
                             </h2>
                         </div>
