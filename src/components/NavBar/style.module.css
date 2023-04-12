@@ -30,10 +30,6 @@
     transition: all 0.5s ease-in-out;
 }
 
-.show__navbar .navbar__logo {
-    color: var(--color-black);
-}
-
 .navbar__logo span {
     font-size: 1.8rem;
     margin-left: 5px;

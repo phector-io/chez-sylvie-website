@@ -5,12 +5,12 @@ import { useAppContextProvider } from "../../providers/AppContextProvider";
 import { HEADER_TYPE, POPUP_TYPE } from "../../interfaces/Enum";
 
 import Header from "../Header/Header";
+import Popup from "../Popup/Popup";
 import Footer from "../Footer/Footer";
 
+import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import img from "/assets/pizzeria2.jpg";
-import styles from "./style.module.css";
-import Popup from "../Popup/Popup";
 
 const Home: FC = (): JSX.Element => {
     const { infoPopup } = useAppContextProvider();

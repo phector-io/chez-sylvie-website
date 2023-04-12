@@ -19,17 +19,30 @@ const navLinkList = [
 ];
 
 const NavBar: FC = (): JSX.Element => {
-    const { isNavBarOpen, getPathname, toggleNavBar } = useAppContextProvider();
-    const { pathname } = useLocation();
+    const { isNavBarOpen, pathname, getPathname, toggleNavBar } = useAppContextProvider();
+    const { pathname: path } = useLocation();
+
+    // Handle hamburger and logo colors
+    // because the contact page has a white background
+    const _handleColors = (to: "color" | "stroke") => {
+        const color = pathname === SettingsHelper.getSetting("route_path_contact") || isNavBarOpen ? "#000" : "#fff";
+        return to === "color" ? { color } : { stroke: color };
+    };
 
     useEffect(() => {
-        getPathname(pathname);
-    }, [pathname]);
+        getPathname(path);
+    }, [path]);
 
     return (
-        <nav className={styles.navbar} role="menubar">
+        <nav
+            role="menubar"
+            className={`${styles.navbar}`}
+        >
             <div className={`${styles.navbar__content} ${isNavBarOpen ? styles.show__navbar : ""}`}>
-                <h3 className={styles.navbar__logo}>
+                <h3
+                    className={styles.navbar__logo}
+                    style={_handleColors("color")}
+                >
                     {SettingsHelper.getSetting("company_type")}<span>{SettingsHelper.getSetting("company_name")}</span>
                 </h3>
                 <nav className={styles.navbar__nav} role="navigation">
@@ -50,18 +63,19 @@ const NavBar: FC = (): JSX.Element => {
                     <Carousel />
                 </nav>
                 <label className={styles.navbar__hamburger}>
-                    {/* TEST readOnly ??*/}
                     <input type="checkbox" readOnly checked={isNavBarOpen} onClick={() => toggleNavBar()}/>
                     <svg viewBox="0 0 32 32">
                         <path
-                            className={`${styles.line} ${styles.line__top__bottom}`}
-                            style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
                             d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                            className={`${styles.line} ${styles.line__top__bottom}`}
+                            // style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
+                            style={_handleColors("stroke")}
                         />
                         <path
-                            className={styles.line}
-                            style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
                             d="M7 16 27 16"
+                            className={styles.line}
+                            // style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
+                            style={_handleColors("stroke")}
                         />
                     </svg>
                 </label>

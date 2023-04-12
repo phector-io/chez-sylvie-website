@@ -2,11 +2,12 @@ import { FC } from "react";
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faMapPin, faMobileAlt, faMoneyBillWave, faMoneyCheck, faTicket } from "@fortawesome/free-solid-svg-icons";
+import { faCcMastercard, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 import { SettingsHelper } from "../../helpers/SettingsHelper";
 import styles from "./style.module.css";
+import img from "/assets/car.png";
 
 const contacts = [
     {
@@ -29,13 +30,30 @@ const contacts = [
     },
 ];
 
+const hours = [
+    { day: SettingsHelper.getSetting("day_1"), hours: SettingsHelper.getSetting("hours_time_close")},
+    { day: SettingsHelper.getSetting("day_2"), hours: SettingsHelper.getSetting("hours_time_close")},
+    { day: SettingsHelper.getSetting("day_3"), hours: SettingsHelper.getSetting("hours_time_close")},
+    { day: SettingsHelper.getSetting("day_4"), hours: SettingsHelper.getSetting("hours_time_open")},
+    { day: SettingsHelper.getSetting("day_5"), hours: SettingsHelper.getSetting("hours_time_open")},
+    { day: SettingsHelper.getSetting("day_6"), hours: SettingsHelper.getSetting("hours_time_open")},
+    { day: SettingsHelper.getSetting("day_7"), hours: SettingsHelper.getSetting("hours_time_open")},
+];
+
+const payments = [
+    { typeName: SettingsHelper.getSetting("payment_1"), icon: faMoneyBillWave },
+    { typeName: SettingsHelper.getSetting("payment_2"), icon: faCcMastercard },
+    { typeName: SettingsHelper.getSetting("payment_3"), icon: faMoneyCheck },
+    { typeName: SettingsHelper.getSetting("payment_4"), icon: faTicket },
+];
+
 const Contact: FC = (): JSX.Element => {
     return (
-        <div className="infos" role="contentinfo" id="contact">
-            <div className="infos-content">
-                <div className="contact" data-aos="fade-right">
-                    <h4>{SettingsHelper.getSetting("")}</h4>
-                    <nav className="contact-nav">
+        <div className={styles.contact__container} role="contentinfo">
+            <div className={styles.contact__content}>
+                <div className={styles.contact}>
+                    <h2>{SettingsHelper.getSetting("contact_title")}</h2>
+                    <nav>
                         <ul>
                             {contacts.map((contact, idx) => (
                                 <li key={idx}>
@@ -52,46 +70,34 @@ const Contact: FC = (): JSX.Element => {
                         </ul>
                     </nav>
                 </div>
-                <div className="opening" data-aos="fade-right">
-                    <h4>Horaires</h4>
+                <div>
+                    <h2>{SettingsHelper.getSetting("hours_title")}</h2>
                     <ul>
-                        <li>Lundi : Fermé</li>
-                        <li>Mardi : Fermé</li>
-                        <li>Mercredi : Fermé</li>
-                        <li>Jeudi : 18:00 - 22:00</li>
-                        <li>Vendredi : 18:00 - 22:00</li>
-                        <li>Samedi : 18:00 - 22:00</li>
-                        <li>Dimanche : 18:00 - 22:00</li>
+                        {hours.map((hour, idx) => (
+                            <li key={idx}>
+                                {hour.day} : {hour.hours}
+                            </li>
+                        ))}
                     </ul>
                 </div>
-                <div className="payment" data-aos="fade-right">
-                    <h4>Moyens de paiement</h4>
+                <div>
+                    <h2>{SettingsHelper.getSetting("payment_title")}</h2>
                     <ul>
-                        <li>
-                            <i className="fas fa-money-bill-wave"></i>
-                            <span>Espèces</span>
-                        </li>
-                        <li>
-                            <i className="fab fa-cc-visa"></i>
-                            <span>Cartes bancaires</span>
-                        </li>
-                        <li>
-                            <i className="fas fa-money-check"></i>
-                            <span>Chèques</span>
-                        </li>
-                        <li>
-                            <i className="fas fa-ticket-alt"></i>
-                            <span>Tickets restaurants</span>
-                        </li>
+                        {payments.map((payment, idx) => (
+                            <li key={idx}>
+                                <FontAwesomeIcon icon={payment.icon} />
+                                <span>{payment.typeName}</span>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
-            <div className="animCar payment" data-aos="zoom-in">
-                <div className="car">
-                    <img src="./img/car.png" alt="" />
+            <div className={styles.animCar}>
+                <div className={styles.car}>
+                    <img src={img} />
                 </div>
-                <div className="delivery">
-                    <div className="delivery-content">
+                <div className={styles.delivery}>
+                    <div className={styles.delivery__content}>
                         <p>Les livraisons sont offertes !!</p>
                         <i className="far fa-smile-beam"></i>
                         <p>Livraisons jusqu'à 10kms</p>
