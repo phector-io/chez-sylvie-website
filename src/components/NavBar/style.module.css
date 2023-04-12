@@ -155,7 +155,7 @@
 
 @media screen and (max-width: 400px) {
     .navbar__hamburger svg {
-        height: 2.5em; /*TODO show in mobile */
+        height: 2.5em;
     }
 
     .navbar__nav ul {
@@ -170,6 +170,18 @@
 }
 
 @media screen and (max-width: 850px) and (orientation: landscape) {
+    .navbar__logo {
+        font-size: 0.8rem;
+    }
+
+    .navbar__logo span {
+        font-size: 0.8rem;
+    }
+
+    .navbar__hamburger svg {
+        height: 3em;
+    }
+
     .navbar__nav ul {
         font-size: 1.1em;
         height: 200px;
