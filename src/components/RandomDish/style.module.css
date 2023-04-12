@@ -1,12 +1,22 @@
 .random__container {
-    height: 90vh;
+    min-height: 88vh;
 }
 
 .random {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.random__controls {
+    margin: 20px 0;
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 .random__checkboxes {
@@ -14,7 +24,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .random__checkbox_container {
@@ -86,11 +96,11 @@
     stroke-dashoffset: 66;
 }
 
-.check:hover:before {
+.check:active:before {
     opacity: 1;
 }
 
-.check:hover svg {
+.check:active svg {
     stroke: var(--color-red);
 }
 
@@ -119,7 +129,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .random__button button {
@@ -170,3 +179,30 @@
     bottom: 10px;
     right: 20px;
 }
+
+.random__icon {
+    height: 22rem;
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .random__checkboxes {
+        width: 18rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .random__checkbox_container {
+        /* width: calc(100% / 2 - 30px); */
+        margin: 5px 0;
+        justify-content: flex-start;
+        /* border: 1px solid var(--color-red); */
+    }
+
+    .check {
+        margin: 0;
+    }
+}
+    
