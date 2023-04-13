@@ -86,6 +86,8 @@ const GENERAL_SETTINGS: ISettings = {
     payment_2: "Carte bancaire",
     payment_3: "Chèque",
     payment_4: "Ticket restaurant",
+    free_delivery: "Les livraisons sont offertes !!",
+    delivery_distance: "Livraisons jusqu'à 10kms",
 
     // Cache
     already_visited_storage_key: "already_visited",

@@ -1,24 +1,160 @@
 .contact__container {
     height: 100vh;
     font-weight: lighter;
+    padding: 4rem 0 1rem;
+    width: 80%;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.contact__content, .animCar {
-    background-color: var(--color-white);
-    border-radius: 25px;
-}
-
 .contact__content {
-    padding: 15px 20px;
+    width:  50%;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
+.contact__content h2 {
+    color: var(--color-red);
+}
+
+.contact__content li {
+    margin-bottom: 2px;
+}
+
+.contact__content svg {
+    width: 20px;
+    height: 20px;
+    margin-right: .8rem;
+}
 
 .animCar {
-    border: 1px solid var(--color-gray);
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 50%;
+    height: 60vh;
+    overflow: hidden;
 }
+
+.animCar:hover .delivery {
+    right: 0;
+}
+
+.animCar:hover .car {
+    left: -1000px;
+}
+
+.car {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    transition: .2s ease-out;
+
+}
+
+.car img {
+    width: 80%;
+}
+
+.delivery {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1000px;
+    width: 100%;
+    background-color: #313030;
+    transition: .9s ease-out;
+    display: grid;
+    place-items: center;
+}
+
+.delivery__content {
+    display: grid;
+    place-items: center;
+    font-family: var(--font-josefin);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-white);
+}
+
+.delivery__content h3 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: var(--color-red);
+}
+
+.delivery__content svg {
+    width: 120px;
+    height: 120px;
+    margin: 2rem 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .contact__container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 867px) {
+    .contact__container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact__content {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .animCar {
+        height: 50vh;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) and (orientation: landscape) {
+    .contact__container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact__content {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .animCar {
+        height: 60vh;
+        width: 100%;
+    }
+
+    .delivery__content {
+        color: var(--color-white);
+    }
+
+    .delivery__content h3 {
+        font-size: 2rem;
+    }
+
+    .delivery__content svg {
+        width: 80px;
+        height: 80px;
+        margin: 1rem 0;
+    }
+
+
+    .car img{
+        width: 50%;
+    }
+}
+
+

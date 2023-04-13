@@ -1,8 +1,7 @@
 import { FC } from "react";
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faMobileAlt, faMoneyBillWave, faMoneyCheck, faTicket } from "@fortawesome/free-solid-svg-icons";
+import { faMapPin, faMobileAlt, faMoneyBillWave, faMoneyCheck, faSmile, faSmileBeam, faTicket } from "@fortawesome/free-solid-svg-icons";
 import { faCcMastercard, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 import { SettingsHelper } from "../../helpers/SettingsHelper";
@@ -98,9 +97,9 @@ const Contact: FC = (): JSX.Element => {
                 </div>
                 <div className={styles.delivery}>
                     <div className={styles.delivery__content}>
-                        <p>Les livraisons sont offertes !!</p>
-                        <i className="far fa-smile-beam"></i>
-                        <p>Livraisons jusqu'à 10kms</p>
+                        <h3>{SettingsHelper.getSetting("free_delivery")}</h3>
+                        <FontAwesomeIcon icon={faSmile} color="#ededed"/>
+                        <p>{SettingsHelper.getSetting("delivery_distance")}</p>
                     </div>
                 </div>
             </div>
