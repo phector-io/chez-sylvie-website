@@ -5,7 +5,9 @@ import styles from "./style.module.css";
 const Quiz: FC = (): JSX.Element => {
 
     return (
-       <div>Quiz</div>
+       <div className={styles.quiz}>
+            YOLO
+       </div>
     );
 };
 

@@ -1,0 +1,5 @@
+.quiz {
+    height: 100vh;
+    background: var(--color-gradient);
+    padding-top: 4rem;
+}

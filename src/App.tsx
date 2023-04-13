@@ -1,5 +1,6 @@
 import { AppContextProvider } from "./providers/AppContextProvider";
 import { DishContextProvider } from "./providers/DishContextProvider";
+import { QuizContextProvider } from "./providers/QuizContextProvider";
 
 import Router from "./Router/Router";
 
@@ -7,7 +8,9 @@ function App() {
     return (
         <AppContextProvider>
             <DishContextProvider>
-                <Router />
+                <QuizContextProvider>
+                    <Router />
+                </QuizContextProvider>
             </DishContextProvider>
         </AppContextProvider>
     );

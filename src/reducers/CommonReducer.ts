@@ -2,12 +2,15 @@ import { IImageObject } from "../interfaces/IAppContextProviderProps";
 import { IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
 
 export const ACTIONS = {
+    // AppContext
     SET_INFO_POPUP: "SET_INFO_POPUP",
     SET_PATHNAME: "SET_PATHNAME",
     SET_TOGGLE_NAVBAR: "SET_TOGGLE_NAVBAR",
     SET_CAROUSEL_IMAGES: "SET_CAROUSEL_IMAGES",
     SET_SELECTED_IMAGE: "SET_SELECTED_IMAGE",
     SET_TOGGLE_IS_DISHES_PATH: "SET_TOGGLE_IS_DISHES_PATH",
+
+    // DishContext
     SET_DISH_TYPE: "SET_DISH_TYPE",
     SET_ALL_DISHES: "SET_ALL_DISHES",
     SET_ON_CHANGE_DISH_TYPE: "SET_ON_CHANGE_DISH_TYPE",
@@ -16,18 +19,23 @@ export const ACTIONS = {
     SET_NEW_RANDOM_DISH: "SET_NEW_RANDOM_DISH",
     SET_ORDER: "SET_ORDER",
     SET_ALERT_POPUP: "SET_ALERT_POPUP",
+
+    // QuizContext
 };
 
 export const CommonReducer = (
     state: any,
     action: {
         type: string;
+        // AppContext
         infoPopup?: boolean;
         pathname?: string;
         isNavBarOpen?: boolean;
         carouselImages?: IImageObject[];
         selectedImage?: IImageObject | null;
         isDishesPath?: boolean;
+
+        // DishContext
         dishType?: string;
         allDishes?: IDishObject[];
         dishList?: IDishObject[];
@@ -37,9 +45,12 @@ export const CommonReducer = (
         newRandomDish?: IDishObject | null;
         order?: IOrder[];
         alertPopup?: boolean;
+
+        // QuizContext
     }
 ) => {
     switch (action.type) {
+        // AppContext
         case ACTIONS.SET_INFO_POPUP:
             return { ...state, infoPopup: action.infoPopup };
         case ACTIONS.SET_PATHNAME:
@@ -52,6 +63,8 @@ export const CommonReducer = (
             return { ...state, selectedImage: action.selectedImage };
         case ACTIONS.SET_TOGGLE_IS_DISHES_PATH:
             return { ...state, isDishesPath: action.isDishesPath };
+
+        // DishContext
         case ACTIONS.SET_DISH_TYPE:
             return { ...state, dishType: action.dishType };
         case ACTIONS.SET_ALL_DISHES:
@@ -68,6 +81,8 @@ export const CommonReducer = (
             return { ...state, order: action.order };
         case ACTIONS.SET_ALERT_POPUP:
             return { ...state, alertPopup: action.alertPopup };
+
+        // QuizContext
 
         default:
             return state;
