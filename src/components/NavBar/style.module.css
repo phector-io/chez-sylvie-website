@@ -133,11 +133,11 @@
 
 @media screen and (max-width: 550px) {
     .navbar__logo {
-        font-size: 0.8rem;
+        font-size: .95rem;
     }
 
     .navbar__logo span {
-        font-size: 0.8rem;
+        font-size: .95rem;
     }
 
     .navbar__hamburger svg {
@@ -165,13 +165,13 @@
 
 }
 
-@media screen and (max-width: 920px) and (orientation: landscape) {
+@media screen and (max-width: 850px) and (orientation: landscape) {
     .navbar__logo {
-        font-size: 1rem;
+        font-size: .95rem;
     }
 
     .navbar__logo span {
-        font-size: 1rem;
+        font-size: .95rem;
     }
 
     .navbar__hamburger svg {
