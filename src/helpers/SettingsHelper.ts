@@ -37,7 +37,7 @@ const GENERAL_SETTINGS: ISettings = {
     footer_created_by_title: "Voir le site de Pascal Hector",
 
     // Dishes
-    all_dishes_title: "tous les plats",
+    all_dishes_title: "menu complet",
     pizza_dishes_title: "pizzas",
     flamm_dishes_title: "flamms",
     pasta_dishes_title: "pâtes",
