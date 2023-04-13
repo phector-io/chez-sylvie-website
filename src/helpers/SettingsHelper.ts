@@ -37,7 +37,7 @@ const GENERAL_SETTINGS: ISettings = {
     footer_created_by_title: "Voir le site de Pascal Hector",
 
     // Dishes
-    all_dishes_title: "toute la carte",
+    all_dishes_title: "tous les plats",
     pizza_dishes_title: "pizzas",
     flamm_dishes_title: "flamms",
     pasta_dishes_title: "pâtes",
@@ -45,7 +45,7 @@ const GENERAL_SETTINGS: ISettings = {
     dessert_dishes_title: "desserts",
     drink_dishes_title: "boissons",
     random_dishes_title: "plat aléatoire",
-    see_my_order_title: "ma commande",
+    see_my_order_title: "commande",
     random_form_info: "Selectionnez une ou plusieurs catégories*",
     random_dishes_button_text: "C'est parti !",
     dish_order_title: "Quantité :",
