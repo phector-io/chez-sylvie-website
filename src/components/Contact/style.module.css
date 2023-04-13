@@ -121,6 +121,13 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .contact__content li, .contact__content a{
+        font-size: .8rem;
+    }
+}
+
+
 @media screen and (max-width: 850px) and (orientation: landscape) {
     .contact__container {
         flex-direction: column;
