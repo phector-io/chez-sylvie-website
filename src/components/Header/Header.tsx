@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef } from 'react';
 
 import { useAppContextProvider } from '../../providers/AppContextProvider';
+import { useDishContextProvider } from '../../providers/DishContextProvider';
 
 import { HEADER_TYPE, SCROLL_TARGET } from '../../interfaces/Enum';
 
@@ -23,7 +24,6 @@ import menuParallaxBg from '/assets/bg-pizza.jpg';
 
 import { SettingsHelper } from '../../helpers/SettingsHelper';
 import styles from './style.module.css';
-import { useDishContextProvider } from '../../providers/DishContextProvider';
 
 const choiceGroup = [
     { name: SettingsHelper.getSetting("all_dishes_title"), icon: faConciergeBell},

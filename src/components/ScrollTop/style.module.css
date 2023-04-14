@@ -21,6 +21,7 @@
 .top__button svg {
     width: 25px;
     height: 25px;
+    color: var(--color-white);
 }
 
 @media screen and (max-width: 768px) {

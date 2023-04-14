@@ -1,12 +1,12 @@
 import { ReactNode, createContext, useContext, useEffect, useReducer } from "react";
 
-import { IAnswer, IQuizContextProviderProps } from "../interfaces/IQuizContextProviderProps";
+import { retrieveData } from "../helpers/QueryHelper";
+import { selectRandomQuizObjects } from "../helpers/Helper";
+
+import { IAnswer, IQuizContextProviderProps, IQuizObject } from "../interfaces/IQuizContextProviderProps";
 import { DATA_TYPES } from "../interfaces/Enum";
 
 import { CommonReducer } from "../reducers/CommonReducer";
-
-import { retrieveData } from "../helpers/QueryHelper";
-import { selectRandomQuizObjects } from "../helpers/Helper";
 
 type Props = {
     children: ReactNode;
@@ -53,7 +53,7 @@ export const QuizContextProvider = ({ children }: Props) => {
             // console.log('~> _getQuizData > retrieveData', result);
             dispatch({
                 type: "SET_QUIZ_LIST",
-                quizList: selectRandomQuizObjects(result),
+                quizList: selectRandomQuizObjects(result as IQuizObject[]),
             });
         });
     };

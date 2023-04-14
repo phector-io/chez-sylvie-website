@@ -4,8 +4,8 @@ import { IDishObject } from '../../interfaces/IDishContextProviderProps';
 
 import DishQuantity from '../DishQuantity/DishQuantity';
 
-import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
+import styles from './style.module.css';
 
 type Props = {
     item: IDishObject;
@@ -13,7 +13,7 @@ type Props = {
 
 const DishItem: FC<Props> = ({ item }: Props): JSX.Element => {
     return (
-        <div className={styles.dish__container} /*TODO data-aos="fade-up"*/>
+        <div className={styles.dish__container}>
             <h2>{item.name}</h2>
             <div className={styles.dish__etiquet__price}>
                 <p>{item.price}</p>

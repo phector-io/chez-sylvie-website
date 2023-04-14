@@ -1,5 +1,5 @@
 import { IDishObject } from "../interfaces/IDishContextProviderProps";
-import { IQuizObject } from "../interfaces/IQuizObject";
+import { IQuizObject } from "../interfaces/IQuizContextProviderProps";
 
 import { SettingsHelper } from "./SettingsHelper";
 

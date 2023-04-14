@@ -2,7 +2,7 @@
 import { IRawData } from "../interfaces/IRawData";
 import { IImageObject } from "../interfaces/IAppContextProviderProps";
 import { IDishObject } from "../interfaces/IDishContextProviderProps";
-import { IQuizObject } from "../interfaces/IQuizObject";
+import { IQuizObject } from "../interfaces/IQuizContextProviderProps";
 import { DATA_TYPES } from "../interfaces/Enum";
 import { SettingsHelper } from "./SettingsHelper";
 

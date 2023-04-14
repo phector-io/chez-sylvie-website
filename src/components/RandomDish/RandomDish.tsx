@@ -6,9 +6,10 @@ import { NewtonsCradle } from '@uiball/loaders';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './style.module.css';
-import { SettingsHelper } from '../../helpers/SettingsHelper';
 import DishItem from '../DishItem/DishItem';
+
+import { SettingsHelper } from '../../helpers/SettingsHelper';
+import styles from './style.module.css';
 
 const randomCategories = [
     SettingsHelper.getSetting("pizza_dishes_title"),

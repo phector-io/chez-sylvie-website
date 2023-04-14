@@ -1,11 +1,12 @@
 import { FC } from 'react';
 
-import { ALERT_ACTION, POPUP_TYPE } from '../../interfaces/Enum';
-
-import styles from './style.module.css';
-import { SettingsHelper } from '../../helpers/SettingsHelper';
 import { useAppContextProvider } from '../../providers/AppContextProvider';
 import { useDishContextProvider } from '../../providers/DishContextProvider';
+
+import { ALERT_ACTION, POPUP_TYPE } from '../../interfaces/Enum';
+
+import { SettingsHelper } from '../../helpers/SettingsHelper';
+import styles from './style.module.css';
 
 type Props = {
     type: POPUP_TYPE;

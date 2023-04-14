@@ -30,7 +30,7 @@ const ScrollTop: FC = (): JSX.Element => {
 
     return (
        <button ref={buttonRef} onClick={() => scrollToTarget(SCROLL_TARGET.TOP)} className={styles.top__button}>
-            <FontAwesomeIcon icon={faArrowUp} color={"#fff"} />
+            <FontAwesomeIcon icon={faArrowUp} />
        </button>
     );
 };

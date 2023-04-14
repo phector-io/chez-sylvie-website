@@ -9,12 +9,12 @@ import Header from "../Header/Header";
 import RandomDish from "../RandomDish/RandomDish";
 import ScrollTop from "../ScrollTop/ScrollTop";
 import DishItem from "../DishItem/DishItem";
+import MyOrder from "../MyOrder/MyOrder";
 
 import { useLocation } from "react-router-dom";
 
-import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
-import MyOrder from "../MyOrder/MyOrder";
+import styles from "./style.module.css";
 
 const DishList: FC = (): JSX.Element => {
     const { getPathname } = useAppContextProvider();

@@ -1,5 +1,8 @@
 import { ReactNode, createContext, useContext, useEffect, useReducer } from "react";
 
+import { retrieveData } from "../helpers/QueryHelper";
+import { filterDishes, getRandomDish } from "../helpers/Helper";
+
 import { useAppContextProvider } from "./AppContextProvider";
 
 import { IDishContextProviderProps, IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
@@ -7,8 +10,6 @@ import { ALERT_ACTION, DATA_TYPES } from "../interfaces/Enum";
 
 import { CommonReducer } from "../reducers/CommonReducer";
 
-import { retrieveData } from "../helpers/QueryHelper";
-import { filterDishes, getRandomDish } from "../helpers/Helper";
 
 import { SettingsHelper } from "../helpers/SettingsHelper";
 

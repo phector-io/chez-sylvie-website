@@ -5,13 +5,13 @@ import { useDishContextProvider } from '../../providers/DishContextProvider';
 import { ORDER_ACTION, POPUP_TYPE } from '../../interfaces/Enum';
 
 import DishQuantity from '../DishQuantity/DishQuantity';
+import Popup from '../Popup/Popup';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping, faPhone, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './style.module.css';
 import { SettingsHelper } from '../../helpers/SettingsHelper';
-import Popup from '../Popup/Popup';
+import styles from './style.module.css';
 
 const MyOrder: FC = (): JSX.Element => {
     const { order, alertPopup, deleteDishFromOrder, openAlertPopup } = useDishContextProvider();

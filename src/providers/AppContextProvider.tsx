@@ -1,15 +1,17 @@
 import { ReactNode, createContext, useContext, useEffect, useReducer } from "react";
 
+import { retrieveData } from "../helpers/QueryHelper";
+
 import { IAppContextProviderProps, IImageObject } from "../interfaces/IAppContextProviderProps";
 import { DATA_TYPES, SCROLL_TARGET } from "../interfaces/Enum";
 
 import { CommonReducer } from "../reducers/CommonReducer";
 
-import { retrieveData } from "../helpers/QueryHelper";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { v4 as uuidv4 } from "uuid";
+
 import { SettingsHelper } from "../helpers/SettingsHelper";
 
 type Props = {

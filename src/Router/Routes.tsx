@@ -8,6 +8,7 @@ import Contact from "../components/Contact/Contact";
 import NotFound from "../components/NotFound/NotFound";
 import Quiz from "../components/Quiz/Quiz";
 import LegalMentions from "../components/LegalMentions/LegalMentions";
+
 import { SettingsHelper } from "../helpers/SettingsHelper";
 
 const RoutesComponent: FC = (): JSX.Element => {

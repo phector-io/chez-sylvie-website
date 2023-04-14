@@ -1,28 +1,28 @@
 export enum HEADER_TYPE {
     HOME,
     DISHES,
-};
+}
 
 export enum DATA_TYPES {
     IMAGES,
     DISHES,
     QUIZ,
-};
+}
 
 export enum SCROLL_TARGET {
     TOP,
     BOTTOM,
-};
+}
 
 export enum QUANTITY_ACTION {
     ADD,
     REMOVE,
-};
+}
 
 export enum ORDER_ACTION {
     CLEAR,
-    ORDER
-};
+    ORDER,
+}
 
 export enum POPUP_TYPE {
     INFO,
