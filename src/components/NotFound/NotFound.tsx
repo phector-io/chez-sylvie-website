@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import styles from "./style.module.css";
 import { SettingsHelper } from "../../helpers/SettingsHelper";
+import styles from "./style.module.css";
 
 const NotFound: FC = (): JSX.Element => {
     const history = useNavigate();
