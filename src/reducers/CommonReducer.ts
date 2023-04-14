@@ -1,5 +1,6 @@
 import { IImageObject } from "../interfaces/IAppContextProviderProps"; 
 import { IDishObject, IOrder } from "../interfaces/IDishContextProviderProps";
+import { IQuizObject } from "../interfaces/IQuizContextProviderProps";
 
 export const ACTIONS = {
     // AppContext
@@ -21,6 +22,13 @@ export const ACTIONS = {
     SET_ALERT_POPUP: "SET_ALERT_POPUP",
 
     // QuizContext
+    SET_QUIZ_LAUNCHED: "SET_QUIZ_LAUNCHED",
+    SET_QUIZ_LIST: "SET_QUIZ_LIST",
+    SET_QUIZ_PROGRESS: "SET_QUIZ_PROGRESS",
+    SET_NEW_ANSWER: "SET_NEW_ANSWER",
+    SET_NEXT_QUESTION: "SET_NEXT_QUESTION",
+    SET_QUIZ_FINISHED: "SET_QUIZ_FINISHED",
+    SET_RESET_QUIZ: "SET_RESET_QUIZ",
 };
 
 export const CommonReducer = (
@@ -47,6 +55,12 @@ export const CommonReducer = (
         alertPopup?: boolean;
 
         // QuizContext
+        quizLaunched?: boolean;
+        quizList?: IQuizObject[];
+        quizProgress?: number;
+        hasAnswered?: boolean;
+        writeAnswers?: number;
+        quizFinished?: boolean;
     }
 ) => {
     switch (action.type) {
@@ -83,6 +97,20 @@ export const CommonReducer = (
             return { ...state, alertPopup: action.alertPopup };
 
         // QuizContext
+        case ACTIONS.SET_QUIZ_LAUNCHED:
+            return { ...state, quizLaunched: action.quizLaunched };
+        case ACTIONS.SET_QUIZ_LIST:
+            return { ...state, quizList: action.quizList };
+        case ACTIONS.SET_QUIZ_PROGRESS:
+            return { ...state, quizProgress: action.quizProgress };
+        case ACTIONS.SET_NEW_ANSWER:
+            return { ...state, hasAnswered: action.hasAnswered, writeAnswers: action.writeAnswers };
+        case ACTIONS.SET_NEXT_QUESTION:
+            return { ...state, quizProgress: action.quizProgress, hasAnswered: action.hasAnswered };
+        case ACTIONS.SET_QUIZ_FINISHED:
+            return { ...state, quizFinished: action.quizFinished };
+        case ACTIONS.SET_RESET_QUIZ:
+            return { ...state, quizLaunched: action.quizLaunched, quizProgress: action.quizProgress, hasAnswered: action.hasAnswered, writeAnswers: action.writeAnswers, quizFinished: action.quizFinished };
 
         default:
             return state;

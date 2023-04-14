@@ -415,84 +415,144 @@
     ],
     "quiz": [
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "De quelle ville vient la pizza ?",
+            "options": [
+                { "answer": "Rome", "correct": false },
+                { "answer": "Naples", "correct": true },
+                { "answer": "Venise", "correct": false },
+                { "answer": "Turin", "correct": false }
             ],
-            "correct": 3
+            "abstract": "La pizza est originaire de Naples, en Italie et fût inventée en 1780."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "Quelle est la pizza la plus populaire ?",
+            "options": [
+                { "answer": "Marguerite", "correct": false },
+                { "answer": "4 fromages", "correct": false },
+                { "answer": "Reine", "correct": true },
+                { "answer": "Pescatore", "correct": false }
             ],
-            "correct": 3
+            "abstract": "La pizza Reine est la pizza la plus populaire dans tous pays confondus."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "Combien coûte la pizza la plus chère du monde ?",
+            "options": [
+                { "answer": "8300€", "correct": true },
+                { "answer": "2000€", "correct": false },
+                { "answer": "4100€", "correct": false },
+                { "answer": "6500€", "correct": false }
             ],
-            "correct": 3
+            "abstract": "Nommée Louis XIII, elle est composée de 3 types de caviar, d'homard de Norvège et de mozzarella di bufala Campana ainsi que sept autres variétés de fromage."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "En quelle année a été inventée la pizza ?",
+            "options": [
+                { "answer": "1880", "correct": false },
+                { "answer": "1980", "correct": false },
+                { "answer": "2080", "correct": false },
+                { "answer": "1780", "correct": true }
             ],
-            "correct": 3
+            "abstract": "Inventée par Raffaele Esposito. Ce chef italien est alors à la tête de la Pizzeria di Pietro, ouverte en 1780 par Pietro Colicchio."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "Quel est le nom de la pizza qui n'a pas de sauce tomate ?",
+            "options": [
+                { "answer": "Pizza blanche", "correct": true },
+                { "answer": "Pizza claire", "correct": false },
+                { "answer": "Pizza sans sauce", "correct": false },
+                { "answer": "Pizza napolitaine", "correct": false }
             ],
-            "correct": 3
+            "abstract": "La pizza blanche ou pizza bianca est une pizza sans sauce tomate, composée de mozzarella, de parmesan et d'origan."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "Quel est le nom de la pizza qui a des anchois sur le dessus ?",
+            "options": [
+                { "answer": "Mimo'zza Royale", "correct": false },
+                { "answer": "Pescatore", "correct": false },
+                { "answer": "Napo", "correct": true },
+                { "answer": "Exotique", "correct": false }
             ],
-            "correct": 3
+            "abstract": "Préparée avec amour par notre équipe, la pizza Napo est composée de fromage, d'anchois et d'olives."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "En quelle année la pizza est arrivée en France ?",
+            "options": [
+                { "answer": "1945", "correct": false },
+                { "answer": "1930", "correct": true },
+                { "answer": "1970", "correct": false },
+                { "answer": "1975", "correct": false }
             ],
-            "correct": 3
+            "abstract": "La pizza est arrivée en France en 1930, à Marseille, dans un restaurant italien."
         },
         {
-            "question": "Quel est le nom du chien de la famille Flamm ?",
-            "answers": [
-                "Bobby",
-                "Rex",
-                "Rexy",
-                "Rexy Flamm"
+            "question": "Quelle est la différence entre une pizza napolitaine et une pizza romaine ?",
+            "options": [
+                { "answer": "La forme", "correct": false },
+                { "answer": "La taille", "correct": false },
+                { "answer": "La pâte", "correct": true },
+                { "answer": "La sauce tomate", "correct": false }
             ],
-            "correct": 3
+            "abstract": "La pâte est plus épaisse à Rome. La pizza napolitaine est plus fine et plus croustillante."
+        },
+        {
+            "question": "Combien de plats sont à la carte ?",
+            "options": [
+                { "answer": "40", "correct": false },
+                { "answer": "23", "correct": false },
+                { "answer": "31", "correct": false },
+                { "answer": "54", "correct": true }
+            ],
+            "abstract": "Il y a 31 sortes de pizzas, 8 sortes de flamms, 7 sortes de pâtes et 8 sortes de desserts. De quoi s'en lécher les doigts !"
+        },
+        {
+            "question": "Quelle pizza a des lardons ?",
+            "options": [
+                { "answer": "Reine Paysanne", "correct": true },
+                { "answer": "Hamm'zza", "correct": false },
+                { "answer": "Roberto", "correct": false },
+                { "answer": "4 saisons", "correct": false }
+            ],
+            "abstract": "La Reine paysanne est une reine à laquelle on ajoute de la crème et des lardons."
+        },
+        {
+            "question": "Combien de temps met-on à cuire une pizza chez Sylvie ?",
+            "options": [
+                { "answer": "4 minutes", "correct": false },
+                { "answer": "2 minutes", "correct": true },
+                { "answer": "3 minutes", "correct": false },
+                { "answer": "5 minutes", "correct": false }
+            ],
+            "abstract": "La pizza est cuite en 2 minutes dans un four électrique à 400°C."
+        },
+        {
+            "question": "De quelle modèle est la voiture de livraison ?",
+            "options": [
+                { "answer": "Twingo 2", "correct": false },
+                { "answer": "Ferrari", "correct": false },
+                { "answer": "Twingo 1", "correct": true },
+                { "answer": "Clio 1", "correct": false }
+            ],
+            "abstract": "Du 0 à 100 km/h en 2 minutes, un vrai petit bolide !"
+        },
+        {
+            "question": "Quel ingrédient ne se trouve pas sur une flamm ?",
+            "options": [
+                { "answer": "Fromage", "correct": true },
+                { "answer": "Crème", "correct": false },
+                { "answer": "Lardons", "correct": false },
+                { "answer": "Oignons", "correct": false }
+            ],
+            "abstract": "La flamm est une pizza sans fromage, composée de crème, de lardons et d'oignons. C'est la flamm gratinée qui est composée de fromage."
+        },
+        {
+            "question": "Quel ingrédient n'est pas sur la Roberto ?",
+            "options": [
+                { "answer": "Salami", "correct": false },
+                { "answer": "Jambon", "correct": false },
+                { "answer": "Fromage", "correct": false },
+                { "answer": "Oignons", "correct": true }
+            ],
+            "abstract": "La Roberto est une pizza composée de jambon, de salami, de champignons, de poivrons, et de fromage."
         }
     ]
 }

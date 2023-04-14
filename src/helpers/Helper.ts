@@ -1,4 +1,5 @@
 import { IDishObject } from "../interfaces/IDishContextProviderProps";
+import { IQuizObject } from "../interfaces/IQuizObject";
 
 import { SettingsHelper } from "./SettingsHelper";
 
@@ -27,4 +28,15 @@ export const getRandomDish = (dishes: IDishObject[], categories: string[]): IDis
     const filteredDishes = dishes.filter((dish) => categories.includes(dish.type));
     const randomDish = filteredDishes[Math.floor(Math.random() * filteredDishes.length)];
     return randomDish;
+};
+
+export const selectRandomQuizObjects = (questions: IQuizObject[]): IQuizObject[] => {
+    const shuffledQuestions = shuffleQuizObject(questions);
+    const selectedQuestions = shuffledQuestions.slice(0, 10);
+    return selectedQuestions;
+};
+
+const shuffleQuizObject = (questions: IQuizObject[]): IQuizObject[] => {
+    const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    return shuffledQuestions;
 };

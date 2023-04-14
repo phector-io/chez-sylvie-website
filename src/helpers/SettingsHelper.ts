@@ -89,6 +89,16 @@ const GENERAL_SETTINGS: ISettings = {
     free_delivery: "Les livraisons sont offertes !!",
     delivery_distance: "Livraisons jusqu'à 10kms",
 
+    // Quiz
+    quiz_subtitle: "Testez vos connaissances sur les pizzas et la pizzeria avec notre quiz interactif !",
+    quiz_start_button_text: "Commencer le Quiz",
+    quiz_end_button_text: "Rejouer",
+    quiz_next_button_title: "Prochaine question",
+    quiz_finished_title: "Quiz terminé",
+    quiz_before_result_text: "Vous avez répondu correctement à",
+    quiz_after_result_text: "questions sur",
+    quiz_result_punctuation: "!",
+
     // Cache
     already_visited_storage_key: "already_visited",
     order_cache_key: "my_order",

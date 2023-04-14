@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 :root {
+    /* colors */
     --color-white: #fff;
     --color-black: #000;
     --color-gray-light: #d3d3d3;
@@ -9,12 +11,17 @@
     --color-gray-dark: #686868;
     --color-red: #e20f2f;
     --color-red-dark: #9c0c0c;
+    --color-green: #0f9c0c;
     --color-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 
+    /* fonts */
     --font-josefin: "Josefin Sans", sans-serif;
     --font-poppins: "Poppins", sans-serif;
+    --font-neucha: "Neucha", cursive;
 }
 
+
+/* Global CSS */
 * {
     margin: 0;
     padding: 0;

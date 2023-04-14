@@ -116,24 +116,23 @@ export const DishContextProvider = ({ children }: Props) => {
     // Update order
     const updateOrder = (order: IOrder) => {
         const { dish, quantity } = order;
-        const currentOrder = state.order;
-        const orderArray = currentOrder ? [...currentOrder] : [];
+        const currentOrder = state.order ? [...state.order] : [];
     
-        const index = orderArray.findIndex((item) => item.dish.name === dish.name);
+        const index = currentOrder.findIndex((item) => item.dish.name === dish.name);
 
         if (index !== -1) {
-            orderArray[index].quantity = quantity;
+            currentOrder[index].quantity = quantity;
             if (quantity === 0) {
-                orderArray.splice(index, 1);
+                currentOrder.splice(index, 1);
             }
         } else {
-            orderArray.push(order);
+            currentOrder.push(order);
         }
     
-        localStorage.setItem(SettingsHelper.getSetting("order_cache_key"), JSON.stringify(orderArray));
+        localStorage.setItem(SettingsHelper.getSetting("order_cache_key"), JSON.stringify(currentOrder));
         dispatch({
             type: "SET_ORDER",
-            order: orderArray,
+            order: currentOrder,
         });
     };
     
