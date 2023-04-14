@@ -100,6 +100,11 @@ const GENERAL_SETTINGS: ISettings = {
     quiz_after_result_text: "questions sur",
     quiz_result_punctuation: "!",
 
+    // 404
+    page_404_title: " Vous avez l'air perdu",
+    page_404_text: "La page que vous recherchez n'est pas disponible !",
+    page_404_button_text: "Retour à l'",
+
     // Cache
     already_visited_storage_key: "already_visited",
     order_cache_key: "my_order",

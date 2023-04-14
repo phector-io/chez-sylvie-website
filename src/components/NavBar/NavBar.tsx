@@ -18,30 +18,48 @@ const navLinkList = [
     { name: SettingsHelper.getSetting("route_name_quiz"), icon: faQuestionCircle },
 ];
 
+const routePathList = [
+    SettingsHelper.getSetting("route_path_home"),
+    SettingsHelper.getSetting("route_path_menu"),
+    SettingsHelper.getSetting("route_path_contact"),
+    SettingsHelper.getSetting("route_path_quiz"),
+];
+
 const NavBar: FC = (): JSX.Element => {
     const { isNavBarOpen, pathname, getPathname, toggleNavBar } = useAppContextProvider();
     const { pathname: path } = useLocation();
 
     // Handle hamburger and logo colors
     // because the contact page has a white background
-    const _handleColors = (to: "color" | "stroke") => {
+    const _handleNavbarColors = (to: "color" | "stroke") => {
         const color = pathname === SettingsHelper.getSetting("route_path_contact") || isNavBarOpen ? "#000" : "#fff";
         return to === "color" ? { color } : { stroke: color };
+    };
+
+    // Hide navbar on 404 page
+    const _hideNavBar = () => {
+        const isNotFound = routePathList.indexOf(pathname) === -1;
+        return isNotFound;
     };
 
     useEffect(() => {
         getPathname(path);
     }, [path]);
 
+    useEffect(() => {
+        _hideNavBar()
+    }, [pathname]);
+
     return (
         <nav
             role="menubar"
             className={`${styles.navbar}`}
+            style={{ display: _hideNavBar() ? "none" : "block" }}
         >
             <div className={`${styles.navbar__content} ${isNavBarOpen ? styles.show__navbar : ""}`}>
                 <h3
                     className={styles.navbar__logo}
-                    style={_handleColors("color")}
+                    style={_handleNavbarColors("color")}
                 >
                     {SettingsHelper.getSetting("company_type")}<span>{SettingsHelper.getSetting("company_name")}</span>
                 </h3>
@@ -69,13 +87,13 @@ const NavBar: FC = (): JSX.Element => {
                             d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
                             className={`${styles.line} ${styles.line__top__bottom}`}
                             // style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
-                            style={_handleColors("stroke")}
+                            style={_handleNavbarColors("stroke")}
                         />
                         <path
                             d="M7 16 27 16"
                             className={styles.line}
                             // style={{stroke: isNavBarOpen ? "#000" : "#fff"}}
-                            style={_handleColors("stroke")}
+                            style={_handleNavbarColors("stroke")}
                         />
                     </svg>
                 </label>
