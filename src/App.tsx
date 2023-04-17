@@ -16,6 +16,3 @@ function App() {
     );
 }
 export default App;
-
-//TODO
-// Add in cache where first in site

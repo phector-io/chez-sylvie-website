@@ -50,7 +50,7 @@ export const QuizContextProvider = ({ children }: Props) => {
     // Get Quiz Data
     const _getQuizData = () => {
         retrieveData(DATA_TYPES.QUIZ).then((result) => {
-            // console.log('~> _getQuizData > retrieveData', result);
+            console.log('~> _getQuizData > retrieveData', result.length);
             dispatch({
                 type: "SET_QUIZ_LIST",
                 quizList: selectRandomQuizObjects(result as IQuizObject[]),

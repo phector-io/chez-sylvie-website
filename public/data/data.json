@@ -553,6 +553,64 @@
                 { "answer": "Oignons", "correct": true }
             ],
             "abstract": "La Roberto est une pizza composée de jambon, de salami, de champignons, de poivrons, et de fromage."
+        },
+        {
+            "question": "Quelle taile faisait la plus grande pizza jamais réalisée ?",
+            "options": [
+                { "answer": "556 m²", "correct": false },
+                { "answer": "1310 m²", "correct": true },
+                { "answer": "2350 m²", "correct": false },
+                { "answer": "185 m2", "correct": false }
+            ],
+            "abstract": "C'est Pizza Hut qui a réalisé la plus grande pizza du monde, avec 6193 kilos de pâte, 2245 litres de sauce tomate et 3992 kilos de fromage."
+        },
+        {
+            "question": "De quelle forme sont les lunettes de Sylvie ?",
+            "options": [
+                { "answer": "Carré", "correct": false },
+                { "answer": "Rond", "correct": false },
+                { "answer": "Coeur", "correct": true },
+                { "answer": "Étoile", "correct": false }
+            ],
+            "abstract": "Sylvie porte des lunettes de forme coeur, pour être à la pointe de la mode."
+        },
+        {
+            "question": "Quelle est la taille moyenne d'une pizza ?",
+            "options": [
+                { "answer": "25 cm", "correct": false },
+                { "answer": "28 cm", "correct": false },
+                { "answer": "30 cm", "correct": true },
+                { "answer": "35 cm", "correct": false }
+            ],
+            "abstract": "La taille moyenne d'une pizza est de 30 cm. Chez Sylvie, la taille est de 28cm."
+        },
+        {
+            "question": "Où se trouve la pizzeria ?",
+            "options": [
+                { "answer": "Rue de la Paix", "correct": false },
+                { "answer": "Rue de la République", "correct": false },
+                { "answer": "Rue de la Gare", "correct": false },
+                { "answer": "Rue Mal Foch", "correct": true }
+            ],
+            "abstract": "La pizzeria se trouve au 17 rue Mal Foch, à Sarralbe. À 2 minutes à pied de l'église Saint-Martin."
+        },
+        {
+            "question": "Pensez-vous que qu'il est possible de déguster une pizza dans l'espace ?",
+            "options": [
+                { "answer": "Oui", "correct": true },
+                { "answer": "Non", "correct": false }
+            ],
+            "abstract": "Oui, c'est possible. C'est en 2001 que la première pizza fut livrée dans l'espace. Cette livraison a coûté près d'un million de dollars."
+        },
+        {
+            "question": "Quel est le pays qui consomme le plus de pizza ?",
+            "options": [
+                { "answer": "France", "correct": false },
+                { "answer": "USA", "correct": true },
+                { "answer": "Italie", "correct": false },
+                { "answer": "Japon", "correct": false }
+            ],
+            "abstract": "Les USA sont le pays qui consomme le plus de pizza, avec 350 millions de pizzas consommées chaque année."
         }
     ]
 }

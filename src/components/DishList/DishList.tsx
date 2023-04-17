@@ -55,5 +55,3 @@ const DishList: FC = (): JSX.Element => {
     );
 };
 export default DishList;
-
-//TODO: Add ma commande
