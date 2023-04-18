@@ -595,7 +595,7 @@
             "abstract": "La pizzeria se trouve au 17 rue Mal Foch, à Sarralbe. À 2 minutes à pied de l'église Saint-Martin."
         },
         {
-            "question": "Pensez-vous que qu'il est possible de déguster une pizza dans l'espace ?",
+            "question": "Pensez-vous qu'il est possible de déguster une pizza dans l'espace ?",
             "options": [
                 { "answer": "Oui", "correct": true },
                 { "answer": "Non", "correct": false }
