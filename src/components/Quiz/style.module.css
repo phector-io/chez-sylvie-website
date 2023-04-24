@@ -220,10 +220,13 @@
 }
 
 @media screen and (max-width: 600px) {
+    .quiz__container {
+        overflow: auto;
+        min-height: 100vh;
+        padding-top: 0;
+    }
     .quiz {
         width: 100%;
-        max-height: 100vh;
-        overflow: auto;
     }
 
     .quiz__question h2 {
@@ -244,6 +247,10 @@
         width: 100%;
         font-size: 1.2rem;
         line-height: 1.5rem;
+    }
+
+    .quiz__info p {
+        padding-bottom: 2rem;
     }
 
     .quiz__end h1 {
