@@ -561,7 +561,7 @@
             "abstract": "La Roberto est une pizza composée de jambon, de salami, de champignons, de poivrons, et de fromage."
         },
         {
-            "question": "Quelle taile faisait la plus grande pizza jamais réalisée ?",
+            "question": "Quelle taille faisait la plus grande pizza jamais réalisée ?",
             "options": [
                 { "answer": "556 m²", "correct": false },
                 { "answer": "1310 m²", "correct": true },
