@@ -96,9 +96,6 @@ const GENERAL_SETTINGS: ISettings = {
     quiz_end_button_text: "Rejouer",
     quiz_next_button_title: "Prochaine question",
     quiz_finished_title: "Quiz terminé",
-    quiz_before_result_text: "Vous avez répondu correctement à",
-    quiz_after_result_text: "questions sur",
-    quiz_result_punctuation: "!",
 
     // 404
     page_404_title: " Vous avez l'air perdu",

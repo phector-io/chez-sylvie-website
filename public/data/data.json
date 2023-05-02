@@ -66,6 +66,12 @@
         },
         {
             "type": "pizzas",
+            "name": "Garde à vue",
+            "descr": "Tomate, champignons, fromage, poulet, oignons rouges, avocat, olives",
+            "price": "11.50"
+        },
+        {
+            "type": "pizzas",
             "name": "Hamm'zza",
             "descr": "Tomate, oignons, burger, cheddar, roquette, tomates fraîches, olives",
             "price": "10.00"

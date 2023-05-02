@@ -74,7 +74,7 @@ const Quiz: FC = (): JSX.Element => {
                         {SettingsHelper.getSetting("quiz_finished_title")}
                     </h1>
                     <p>
-                        {SettingsHelper.getSetting("quiz_before_result_text")} {writeAnswers} {SettingsHelper.getSetting("quiz_after_result_text")} {quizList.length} {SettingsHelper.getSetting("quiz_result_punctuation")}
+                        Vous avez répondu correctement à {writeAnswers} question{writeAnswers > 1 && "s"} sur {quizList.length} !
                     </p>
                     <button onClick={resetQuiz}>{SettingsHelper.getSetting("quiz_end_button_text")}</button>
                 </div>
