@@ -54,7 +54,14 @@ const Header: FC<Props> = ({ type }: Props): JSX.Element => {
     return (
         <div 
             className={styles.header}
-            style={{backgroundImage: type === HEADER_TYPE.HOME ? `url(${homeParallaxBg})` : `url(${menuParallaxBg})`}}
+            style={
+                type === HEADER_TYPE.HOME ? {
+                    backgroundImage: `url(${homeParallaxBg})`,
+                    backgroundPosition: "center"
+                } : {
+                    backgroundImage: `url(${menuParallaxBg})`
+                }
+            }
         >
             <div 
                 className={`${styles.header_overlay} ${type === HEADER_TYPE.HOME ? styles.header_overlay_home : styles.header_overlay_dishes}`} 
