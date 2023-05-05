@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
 
 import { useAppContextProvider } from '../../providers/AppContextProvider';
 import { useDishContextProvider } from '../../providers/DishContextProvider';
@@ -44,26 +44,16 @@ type Props = {
 const Header: FC<Props> = ({ type }: Props): JSX.Element => {
     const { updateSelectedDishType } = useDishContextProvider()
     const { scrollToTarget } = useAppContextProvider();
-    const paralaxRef = useRef<HTMLDivElement>(null);
     const history = useNavigate();
 
     const _handleClick = (choice: string) => {
         scrollToTarget(SCROLL_TARGET.BOTTOM);
         updateSelectedDishType(choice);
     };
-
-    // On scroll paralax effect
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (paralaxRef.current) {
-                paralaxRef.current.style.backgroundPositionY = window.scrollY / 2 + "px";
-            }
-        });
-    }, [window.scrollY]);
     
     return (
         <div 
-            className={styles.header} ref={paralaxRef}
+            className={styles.header}
             style={{backgroundImage: type === HEADER_TYPE.HOME ? `url(${homeParallaxBg})` : `url(${menuParallaxBg})`}}
         >
             <div 

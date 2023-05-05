@@ -5,8 +5,8 @@
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: 0;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .header_overlay {
