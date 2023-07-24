@@ -5,7 +5,7 @@ interface ISettings {
 const GENERAL_SETTINGS: ISettings = {
     // General
     data_path: "../data/data.json",
-    footer_created_by_link: "https://p-hector-dev.netlify.app",
+    footer_created_by_link: "https://code-chronicle-bypascal.netlify.app",
 
     // Navigation
     route_name_home: "accueil",
