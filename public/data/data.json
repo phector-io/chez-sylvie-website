@@ -367,56 +367,56 @@
         {
             "type": "boissons",
             "name": "Soda 33cl",
-            "descr": "Dada, coca-cola, coca-light, coca zéro, ice-tea",
-            "price": "2.00"
+            "descr": "Dada, coca-cola, coca-light, coca zéro, ice-tea...",
+            "price": "2.50"
         },
         {
             "type": "boissons",
             "name": "Soda 1.5l",
-            "descr": "Coca-cola, coca-light, coca zéro, ice-tea",
+            "descr": "Coca-cola, coca-light, coca zéro, ice-tea...",
             "price": "3.50"
         },
         {
             "type": "boissons",
             "name": "Eau 50cl",
             "descr": "Plate, gazeuse",
-            "price": "1.50"
+            "price": "2.00"
         },
         {
             "type": "boissons",
-            "name": "Bière 33cl",
-            "descr": "Heineken, kronenbourg, 1664",
+            "name": "Eau 1.5l",
+            "descr": "Plate, gazeuse",
             "price": "3.00"
         },
         {
             "type": "boissons",
-            "name": "Desperados 33cl",
-            "descr": "Desperados ou desperados red",
-            "price": "3.50"
+            "name": "Bière 33cl",
+            "descr": "Heineken, kronenbourg, 1664, Bitburger...",
+            "price": "3.00"
         },
         {
             "type": "boissons",
-            "name": "La Poisse 33cl",
-            "descr": "Brasser à Eich par la Brasserie Imhoff",
-            "price": "3.50"
+            "name": "Desperados 25cl",
+            "descr": "Desperados ou desperados red",
+            "price": "3.00"
         },
         {
             "type": "boissons",
             "name": "Vin 25cl",
             "descr": "Rouge, rosé",
-            "price": "3.50"
+            "price": "5.00"
         },
         {
             "type": "boissons",
             "name": "Vin 75cl",
             "descr": "Rouge, rosé",
-            "price": "7.00"
+            "price": "9.00"
         },
         {
             "type": "boissons",
             "name": "Lambrusco",
             "descr": "Rouge, rosé",
-            "price": "9.00"
+            "price": "13.00"
         }
     ],
     "quiz": [
