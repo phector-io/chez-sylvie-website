@@ -26,79 +26,55 @@
             "type": "pizzas",
             "name": "Camillo",
             "descr": "Tomate, chorizo, champignons, fromage, piments doux ou forts, olives",
-            "price": "9.00"
-        },
-        {
-            "type": "pizzas",
-            "name": "Capri",
-            "descr": "Tomate, jambon, champignons, fromage, olives",
-            "price": "8.50"
+            "price": "10.00"
         },
         {
             "type": "pizzas",
             "name": "Cannibale",
             "descr": "Tomate, oignons, fromage, viande hachée, oeuf",
-            "price": "9.50"
+            "price": "10.50"
         },
         {
             "type": "pizzas",
             "name": "Chèvre chaud",
             "descr": "Tomate, jambon, fromage, raclette, chèvre, crème",
-            "price": "9.50"
+            "price": "10.00"
         },
         {
             "type": "pizzas",
             "name": "Denizza",
             "descr": "Tomate, fromage, chèvre, miel, roquette, noix",
-            "price": "10.00"
+            "price": "10.50"
         },
         {
             "type": "pizzas",
             "name": "Diavolo",
             "descr": "Tomate, chorizo, fromage, olives",
-            "price": "8.00"
+            "price": "9.50"
         },
         {
             "type": "pizzas",
             "name": "Exotique",
             "descr": "Tomate, chorizo, jambon, champignons, fromage, poivrons, ananas, olives",
-            "price": "10.50"
-        },
-        {
-            "type": "pizzas",
-            "name": "Garde à vue",
-            "descr": "Tomate, champignons, fromage, poulet, oignons rouges, avocat, olives",
-            "price": "11.50"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
             "name": "Hamm'zza",
             "descr": "Tomate, oignons, burger, cheddar, roquette, tomates fraîches, olives",
-            "price": "10.00"
+            "price": "11.50"
         },
         {
             "type": "pizzas",
             "name": "Marguerite",
             "descr": "Tomate, fromage, olives",
-            "price": "7.00"
-        },
-        {
-            "type": "pizzas",
-            "name": "Mexicaine",
-            "descr": "Tomate, salami, fromage, poivrons, olives, câpres",
-            "price": "9.00"
+            "price": "8.50"
         },
         {
             "type": "pizzas",
             "name": "Merguez",
             "descr": "Tomate, fromage, merguez, oeuf",
-            "price": "9.00"
-        },
-        {
-            "type": "pizzas",
-            "name": "Mimo'zza",
-            "descr": "Tomate, mozzarella, jambon italien, tomates fraîches, roquette",
-            "price": "11.00"
+            "price": "10.50"
         },
         {
             "type": "pizzas",
@@ -108,261 +84,201 @@
         },
         {
             "type": "pizzas",
-            "name": "Mozza",
-            "descr": "Tomate, mozzarella, tomates fraîches, épices, olives",
-            "price": "9.00"
-        },
-        {
-            "type": "pizzas",
             "name": "Napo",
             "descr": "Tomate, fromage, anchois, olives",
-            "price": "8.00"
+            "price": "9.50"
         },
         {
             "type": "pizzas",
             "name": "Orientale",
             "descr": "Tomate, fromage, merguez, poivrons, oeuf, épices, olives",
-            "price": "9.50"
+            "price": "10.50"
         },
         {
             "type": "pizzas",
             "name": "Pescatore",
             "descr": "Tomate, fruits de mer, fromage, olives",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
             "name": "Pizza de la Cheffe",
             "descr": "Tomate, jambon, lardons, oignons, fromage, tomates fraîches, crème, olives",
-            "price": "10.50"
+            "price": "11.50"
         },
         {
             "type": "pizzas",
             "name": "Poulet",
             "descr": "Tomate, champignons, fromage, poulet, poivrons, oeuf, olives, curry",
-            "price": "10.50"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
             "name": "4 Fromages",
             "descr": "Tomate, emmental, mozzarella, chèvre, bleu, crème",
-            "price": "9.00"
+            "price": "10.00"
         },
         {
             "type": "pizzas",
             "name": "4 Saisons",
             "descr": "Tomate, jambon, champignons, fromage, poivrons, olives",
-            "price": "9.50"
+            "price": "10.00"
         },
         {
             "type": "pizzas",
             "name": "Reine",
             "descr": "Tomate, jambon, champignons, fromage, olives",
-            "price": "9.00"
-        },
-        {
-            "type": "pizzas",
-            "name": "Reine Blanche",
-            "descr": "Tomate, jambon, champignons, fromage, olives, crème",
             "price": "9.50"
         },
         {
             "type": "pizzas",
             "name": "Reine Paysanne",
             "descr": "Tomate, jambon, champignons, fromage, olives, crème, lardons",
-            "price": "10.00"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
-            "name": "Roberto",
+            "name": "Giana",
             "descr": "Tomate, salami, jambon, champignons, fromage, poivrons, olives",
-            "price": "9.50"
-        },
-        {
-            "type": "pizzas",
-            "name": "Salami",
-            "descr": "Tomate, salami, champignons, fromage, olives",
-            "price": "8.50"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
             "name": "Saumon",
             "descr": "Tomate, oignons, fromage, saumon, câpres, olives",
-            "price": "10.50"
+            "price": "11.50"
         },
         {
             "type": "pizzas",
             "name": "Suçuk",
             "descr": "Tomate, suçuk, fromage, olives",
-            "price": "8.50"
-        },
-        {
-            "type": "pizzas",
-            "name": "Thon",
-            "descr": "Tomate, thon, oignons, fromage, olives",
-            "price": "8.50"
+            "price": "10.00"
         },
         {
             "type": "pizzas",
             "name": "Végétarienne",
             "descr": "Tomate, champignons, fromage, artichauts, asperges, maïs, tomates fraîches, olives",
-            "price": "10.00"
+            "price": "11.00"
         },
         {
             "type": "pizzas",
             "name": "Vulcano",
             "descr": "Tomate, jambon, fromage, oeuf",
-            "price": "8.50"
+            "price": "9.50"
         },
         {
             "type": "flamms",
             "name": "Flamm",
             "descr": "Crème, lardons, oignons",
-            "price": "8.50"
+            "price": "9.00"
         },
         {
             "type": "flamms",
             "name": "Flamm Gratinée",
             "descr": "Crème, lardons, oignons, fromage",
-            "price": "9.00"
-        },
-        {
-            "type": "flamms",
-            "name": "Forestière",
-            "descr": "Crème, lardons, oignons, champignons, fromage",
-            "price": "9.50"
-        },
-        {
-            "type": "flamms",
-            "name": "Jambon",
-            "descr": "Crème, jambon, fromage",
-            "price": "8.00"
+            "price": "10.00"
         },
         {
             "type": "flamms",
             "name": "Léti",
             "descr": "Crème, jambon, oignons, fromage, pomme de terre, raclette ou reblochon ou tartiflette",
-            "price": "10.00"
+            "price": "11.50"
         },
         {
             "type": "flamms",
             "name": "Munster",
             "descr": "Crème, lardons, oignons, munster, cumin (poudre ou grains)",
-            "price": "9.00"
+            "price": "10.00"
         },
         {
             "type": "flamms",
             "name": "Saumon, ciboulette",
             "descr": "Crème, oignons, saumon, ciboulette, zeste de citron",
-            "price": "10.50"
-        },
-        {
-            "type": "flamms",
-            "name": "Vulcano Flamms",
-            "descr": "Crème, lardons, oignons, fromage",
-            "price": "8.50"
+            "price": "11.50"
         },
         {
             "type": "pâtes",
             "name": "Alsacienne",
             "descr": "Crème, lardons, munster, fromage",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "pâtes",
             "name": "Bolo",
             "descr": "Tomate, bolognaise maison, fromage",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "pâtes",
             "name": "Carbonara",
             "descr": "Crème, jambon, lardons, fromage",
-            "price": "9.00"
+            "price": "AA.00"
         },
         {
             "type": "pâtes",
             "name": "Poulet",
             "descr": "Crème, poulet, curry, fromage",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "pâtes",
             "name": "4 Fromages",
             "descr": "Crème, bleu, chèvre, emmental, mozza",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "pâtes",
             "name": "Saumon",
             "descr": "Crème, saumon fumé, fromage",
-            "price": "9.00"
-        },
-        {
-            "type": "pâtes",
-            "name": "Thon",
-            "descr": "Tomate, thon, fromage",
-            "price": "9.00"
+            "price": "11.00"
         },
         {
             "type": "enfants",
             "name": "Chat",
             "descr": "Reine ou flamm",
-            "price": "6.00"
+            "price": "7.00"
         },
         {
             "type": "enfants",
             "name": "Menu Chat",
             "descr": "Reine ou flamm et une boisson de 33cl",
-            "price": "7.50"
+            "price": "8.50"
         },
         {
             "type": "desserts",
             "name": "Flamm Ananas",
             "descr": "Crème, ananas, cannelle",
-            "price": "6.50"
+            "price": "7.50"
         },
         {
             "type": "desserts",
             "name": "Flamm Banane",
             "descr": "Crème, banane, chocolat",
-            "price": "6.50"
+            "price": "7.50"
         },
         {
             "type": "desserts",
             "name": "Flamm Pomme",
             "descr": "Crème, pomme, sucre, cannelle",
-            "price": "6.50"
-        },
-        {
-            "type": "desserts",
-            "name": "Flamm Pomme Royale",
-            "descr": "Crème, pomme, sucre, cannelle, noix, zestes d'orange",
-            "price": "7.00"
-        },
-        {
-            "type": "desserts",
-            "name": "Vulcano Banane, Chocolat",
-            "descr": "Crème, banane, chocolat",
-            "price": "6.50"
+            "price": "7.50"
         },
         {
             "type": "desserts",
             "name": "Tiramisu Nature",
             "descr": "Saupoudré de cacao",
-            "price": "4.00"
+            "price": "4.50"
         },
         {
             "type": "desserts",
             "name": "Tiramisu Spéculos",
             "descr": "Un arrière goût d'Italie",
-            "price": "4.00"
+            "price": "5.00"
         },
         {
             "type": "desserts",
             "name": "Tiramisu Fruits",
             "descr": "En fonction des saisons",
-            "price": "4.50"
+            "price": "5.00"
         },
         {
             "type": "boissons",
@@ -374,7 +290,7 @@
             "type": "boissons",
             "name": "Soda 1.5l",
             "descr": "Coca-cola, coca-light, coca zéro, ice-tea...",
-            "price": "3.50"
+            "price": "4.00"
         },
         {
             "type": "boissons",
@@ -392,31 +308,67 @@
             "type": "boissons",
             "name": "Bière 33cl",
             "descr": "Heineken, kronenbourg, 1664, Bitburger...",
-            "price": "3.00"
+            "price": "3.50"
+        },
+        {
+            "type": "boissons",
+            "name": "Picon bière 25cl",
+            "descr": "Heineken, kronenbourg, 1664, Bitburger...",
+            "price": "4.00"
         },
         {
             "type": "boissons",
             "name": "Desperados 25cl",
             "descr": "Desperados ou desperados red",
-            "price": "3.00"
+            "price": "3.50"
+        },
+        {
+            "type": "boissons",
+            "name": "Desperados 33cl",
+            "descr": "Desperados ou desperados red",
+            "price": "4.00"
+        },
+        {
+            "type": "boissons",
+            "name": "Martini",
+            "descr": "Blanc ou rouge",
+            "price": "5.00"
+        },
+        {
+            "type": "boissons",
+            "name": "Suze",
+            "descr": "Au verre",
+            "price": "5.00"
+        },
+        {
+            "type": "boissons",
+            "name": "Porto",
+            "descr": "Au verre",
+            "price": "5.00"
         },
         {
             "type": "boissons",
             "name": "Vin 25cl",
             "descr": "Rouge, rosé",
-            "price": "5.00"
+            "price": "6.00"
         },
         {
             "type": "boissons",
             "name": "Vin 75cl",
             "descr": "Rouge, rosé",
-            "price": "9.00"
+            "price": "12.00"
+        },
+        {
+            "type": "boissons",
+            "name": "Vin italien 75cl",
+            "descr": "Rouge, rosé, blanc",
+            "price": "18.00"
         },
         {
             "type": "boissons",
             "name": "Lambrusco",
             "descr": "Rouge, rosé",
-            "price": "13.00"
+            "price": "15.00"
         }
     ],
     "quiz": [
